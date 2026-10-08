@@ -1,0 +1,25 @@
+[gd_resource type="TileSet" format=3 uid="uid://bt4jvke0uq637"]
+
+[ext_resource type="Texture2D" uid="uid://46sq4r2yemc0" path="res://assets/tileset/td_map.png" id="1_26alq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cdn0h"]
+texture = ExtResource("1_26alq")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/custom_data_0 = "water"
+1:0/0 = 0
+1:0/0/custom_data_0 = "land"
+2:0/0 = 0
+2:0/0/custom_data_0 = "road"
+3:0/0 = 0
+3:0/0/custom_data_0 = "start"
+4:0/0 = 0
+4:0/0/custom_data_0 = "end"
+0:1/0 = 0
+0:1/0/custom_data_0 = "land"
+
+[resource]
+tile_size = Vector2i(32, 32)
+custom_data_layer_0/name = "type"
+custom_data_layer_0/type = 4
+sources/0 = SubResource("TileSetAtlasSource_cdn0h")

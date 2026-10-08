@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bqqklh7ixp7fu"]
+
+[ext_resource type="Texture2D" uid="uid://bxi0qe8mbdqks" path="res://assets/texture/r_ballons.tres" id="1_o2w0q"]
+[ext_resource type="Script" uid="uid://cxnu2eabslj0v" path="res://entities/balloon/balloon.gd" id="1_t7pf5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o2w0q"]
+radius = 5.0
+height = 15.0
+
+[node name="Balloon" type="Node2D" unique_id=782191310]
+scale = Vector2(3, 3)
+script = ExtResource("1_t7pf5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1969881047]
+texture_filter = 1
+texture = ExtResource("1_o2w0q")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1133564899]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=445750036]
+shape = SubResource("CapsuleShape2D_o2w0q")

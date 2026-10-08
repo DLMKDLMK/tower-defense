@@ -1,0 +1,6 @@
+TowerDefense 
+Basado en BalloonTowerDefense
+Tiles solo escenario
+Tiles atributo camino y suelo, Camino recorrido de bloons y suelo no
+
+La posicion de las torres en color concreto de suelo o similar, no tiles

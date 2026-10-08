@@ -1,0 +1,60 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+*.tmp
+
+Fragmento de código
+# ==========================================
+# Archivos y carpetas generados por Godot 4+
+# ==========================================
+.godot/
+*.import
+/android/
+*.translation
+
+# Archivos de exportación de binarios
+*.apk
+*.aab
+*.exe
+*.zip
+*.tar.gz
+*.aar
+*.a
+
+# ==========================================
+# Archivos temporales y cachés
+# ==========================================
+*.tmp
+tmp/
+*.log
+
+# ==========================================
+# Entornos de desarrollo / Editores (IDEs)
+# ==========================================
+# VS Code
+.vscode/
+
+# JetBrains (Rider, CLion, etc.)
+.idea/
+
+# Mono / C# (Solo si usas la versión .NET de Godot)
+.mono/
+*.csproj
+*.sln
+bld/
+bin/
+obj/
+
+# ==========================================
+# Archivos del Sistema Operativo
+# ==========================================
+# macOS
+.DS_Store
+.apple-dns
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
