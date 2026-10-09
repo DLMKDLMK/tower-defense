@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dsjpyqdrp3kmd"]
+
+[ext_resource type="Script" uid="uid://n817lv8x751a" path="res://entities/turret/turret_generic.gd" id="1_maew2"]
+[ext_resource type="Texture2D" uid="uid://bxp8mtqqryiam" path="res://assets/texture/turrets/t_basic.tres" id="1_wh0bc"]
+[ext_resource type="Shape2D" uid="uid://dinfpmi2j2iqe" path="res://entities/turret/range_colision.tres" id="2_cvv3h"]
+[ext_resource type="PackedScene" uid="uid://bt3uhnplg7s4e" path="res://entities/projectile/projectile_generic.tscn" id="2_i7ssf"]
+
+[node name="TurretGeneric" type="Node2D" unique_id=322976851]
+scale = Vector2(3, 3)
+script = ExtResource("1_maew2")
+t_range = 150
+projectile = ExtResource("2_i7ssf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=538980350]
+texture_filter = 1
+rotation = 2.3570268
+texture = ExtResource("1_wh0bc")
+
+[node name="RangeArea" type="Area2D" parent="." unique_id=1885657870]
+collision_layer = 2
+
+[node name="RangeColision" type="CollisionShape2D" parent="RangeArea" unique_id=85014471]
+rotation = 0.004371502
+shape = ExtResource("2_cvv3h")

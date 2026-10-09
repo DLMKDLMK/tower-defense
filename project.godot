@@ -16,10 +16,20 @@ run/main_scene="uid://b4pwvgvcd3dlb"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Constants="*uid://b17br2aggdgca"
+
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[layer_names]
+
+2d_physics/layer_1="balloon"
+2d_physics/layer_2="turret"
+2d_physics/layer_3="projectile"
 
 [physics]
 
@@ -27,6 +37,7 @@ window/stretch/aspect="expand"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
