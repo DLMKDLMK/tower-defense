@@ -50,7 +50,7 @@ func spawn_ballons(total: int,path : Array)-> void:
 		
 		b_node.add_child(b)
 		
-		await get_tree().create_timer(3.0).timeout
+		await get_tree().create_timer(0.5).timeout
 
 func _ready() -> void:
 	var path = make_path()

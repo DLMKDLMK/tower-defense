@@ -1,7 +1,7 @@
 extends Node2D
 class_name Ballon
 
-var hp : int = 1
+@export var hp : int = 1
 var speed : float = 200.0 
 
 var path: PackedVector2Array = []
@@ -25,4 +25,13 @@ func _process(delta: float) -> void:
 			_on_path_finished()
 
 func _on_path_finished() -> void:
-	queue_free() # Destruye el globo al llegar al final
+	destroy_balloon()
+	
+func destroy_balloon() -> void :
+	queue_free()
+	
+func set_damage(_damage) -> void:
+	hp = hp - _damage
+	print("set damage")
+	if hp <= 0:
+		destroy_balloon()

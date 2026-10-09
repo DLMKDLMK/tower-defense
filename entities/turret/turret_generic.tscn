@@ -22,3 +22,6 @@ collision_layer = 2
 [node name="RangeColision" type="CollisionShape2D" parent="RangeArea" unique_id=85014471]
 rotation = 0.004371502
 shape = ExtResource("2_cvv3h")
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=1563839165]
+autostart = true
