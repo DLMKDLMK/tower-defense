@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bdfc7kowpgsbt"]
+
+[ext_resource type="Script" uid="uid://cwlxdl5fvqxbj" path="res://entities/projectile/projectile.gd" id="1_5f7kh"]
+[ext_resource type="Texture2D" uid="uid://0f2ia7n5dh14" path="res://assets/texture/projectile/p_dart.tres" id="2_f1itd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ecluw"]
+radius = 2.01
+height = 10.02
+
+[node name="ProjectileDart" type="Node2D" unique_id=1302091290 node_paths=PackedStringArray("sprite_2d")]
+script = ExtResource("1_5f7kh")
+sprite_2d = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=204906927]
+texture = ExtResource("2_f1itd")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=330946597]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1354056295]
+rotation = -0.7853982
+shape = SubResource("CapsuleShape2D_ecluw")

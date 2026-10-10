@@ -1,26 +1,32 @@
 [gd_scene format=3 uid="uid://dsjpyqdrp3kmd"]
 
-[ext_resource type="Script" uid="uid://n817lv8x751a" path="res://entities/turret/turret_generic.gd" id="1_maew2"]
+[ext_resource type="Script" uid="uid://n817lv8x751a" path="res://entities/turret/t_generic/turret_generic.gd" id="1_maew2"]
 [ext_resource type="Texture2D" uid="uid://bxp8mtqqryiam" path="res://assets/texture/turrets/t_basic.tres" id="1_wh0bc"]
-[ext_resource type="Shape2D" uid="uid://dinfpmi2j2iqe" path="res://entities/turret/range_colision.tres" id="2_cvv3h"]
-[ext_resource type="PackedScene" uid="uid://bt3uhnplg7s4e" path="res://entities/projectile/projectile_generic.tscn" id="2_i7ssf"]
-[ext_resource type="Script" uid="uid://c2ay4hs7068el" path="res://entities/turret/range_line.gd" id="5_4llu2"]
+[ext_resource type="PackedScene" uid="uid://bdfc7kowpgsbt" path="res://entities/projectile/p_dart/p_dart.tscn" id="2_4llu2"]
+[ext_resource type="Shape2D" uid="uid://dinfpmi2j2iqe" path="res://entities/turret/t_generic/range_colision.tres" id="2_cvv3h"]
+[ext_resource type="Script" uid="uid://c2ay4hs7068el" path="res://entities/turret/t_generic/range_line.gd" id="5_4llu2"]
 
 [node name="TurretGeneric" type="Node2D" unique_id=322976851]
 scale = Vector2(3, 3)
 script = ExtResource("1_maew2")
 t_range = 150
-projectile = ExtResource("2_i7ssf")
+projectile = ExtResource("2_4llu2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=538980350]
 texture_filter = 1
 rotation = 2.3561945
 texture = ExtResource("1_wh0bc")
 
+[node name="Marker2D" type="Marker2D" parent="Sprite2D" unique_id=1841361344]
+position = Vector2(-6.363961, 2.1213198)
+rotation = -2.3561945
+scale = Vector2(0.99999994, 0.99999994)
+
 [node name="RangeArea" type="Area2D" parent="." unique_id=1885657870]
 collision_layer = 2
 
 [node name="RangeColision" type="CollisionShape2D" parent="RangeArea" unique_id=85014471]
+visible = false
 rotation = 0.004371502
 shape = ExtResource("2_cvv3h")
 

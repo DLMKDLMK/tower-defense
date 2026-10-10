@@ -2,6 +2,7 @@ extends Node2D
 class_name ProjectileGeneric
 
 @onready var area_2d: Area2D = $Area2D
+@export var sprite_2d: Sprite2D 
 @export var p_name : String = "P_DART"
 @export var speed : float = 600.0 
 var damage : int 
@@ -28,6 +29,8 @@ func _on_area_exit(area: Area2D)-> void:
 
 func _process(delta: float) -> void:
 	if is_instance_valid(objective):
+		sprite_2d.look_at(objective.position)
+		sprite_2d.rotation += deg_to_rad(135) 
 		global_position = global_position.move_toward(objective.position, speed * delta)
 	else:
 		queue_free()

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TurretDefinition" format=3 uid="uid://cqhu15shealnb"]
+
+[ext_resource type="PackedScene" uid="uid://bdfc7kowpgsbt" path="res://entities/projectile/p_dart/p_dart.tscn" id="1_ftq55"]
+[ext_resource type="Script" uid="uid://tdn8g3xloyq3" path="res://data/t_definitions/t_definition.gd" id="2_6hkeb"]
+[ext_resource type="Texture2D" uid="uid://cbahhgw3yku42" path="res://assets/texture/turrets/t_ninja.tres" id="3_6hkeb"]
+
+[resource]
+script = ExtResource("2_6hkeb")
+t_name = "t_ninja"
+att_speed = 3
+price = 250
+projectile = ExtResource("1_ftq55")
+sprite = ExtResource("3_6hkeb")

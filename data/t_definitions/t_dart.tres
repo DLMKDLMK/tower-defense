@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TurretDefinition" format=3 uid="uid://dva7p1ktfvcq4"]
+
+[ext_resource type="PackedScene" uid="uid://bdfc7kowpgsbt" path="res://entities/projectile/p_dart/p_dart.tscn" id="1_6wq7m"]
+[ext_resource type="Script" uid="uid://tdn8g3xloyq3" path="res://data/t_definitions/t_definition.gd" id="1_brfg3"]
+[ext_resource type="Texture2D" uid="uid://bxp8mtqqryiam" path="res://assets/texture/turrets/t_basic.tres" id="3_dtpxa"]
+
+[resource]
+script = ExtResource("1_brfg3")
+t_name = "t_dart"
+price = 150
+projectile = ExtResource("1_6wq7m")
+sprite = ExtResource("3_dtpxa")

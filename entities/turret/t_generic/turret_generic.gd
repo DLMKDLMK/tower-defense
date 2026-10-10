@@ -10,6 +10,8 @@ class_name TurretGeneric
 @onready var range_area: Area2D = $RangeArea
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var marker_2d: Marker2D = $Sprite2D/Marker2D
+
 var objective : Node2D
 var objectives : Array[Node2D]
 
@@ -39,6 +41,7 @@ func _on_area_exit(area: Area2D)-> void:
 func create_proyectile() -> void:
 	var p = projectile.instantiate() as ProjectileGeneric
 	p.setup(damage,objective)
+	p.position = marker_2d.position
 	add_child(p)
 	
 func _on_shoot_timer_timeout() -> void:
