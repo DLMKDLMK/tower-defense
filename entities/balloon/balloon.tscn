@@ -10,6 +10,7 @@ height = 15.0
 [node name="Balloon" type="Node2D" unique_id=782191310]
 scale = Vector2(3, 3)
 script = ExtResource("1_t7pf5")
+hp = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1969881047]
 texture_filter = 1

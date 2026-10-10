@@ -9,6 +9,7 @@ class_name TurretGeneric
 @export var placeable : String = "Ground"
 @onready var range_area: Area2D = $RangeArea
 @onready var shoot_timer: Timer = $ShootTimer
+@onready var sprite_2d: Sprite2D = $Sprite2D
 var objective : Node2D
 var objectives : Array[Node2D]
 
@@ -25,12 +26,15 @@ func _on_area_entered(area: Area2D)-> void:
 		var b = area.get_parent()
 		objectives.append(b)
 		objective = objectives.front()
-		print(b)
 	
 func _on_area_exit(area: Area2D)-> void:
-	if objective.name == area.get_parent().name :
-		if !objectives.is_empty(): 
-			objective = objectives.pop_front()
+	if is_instance_valid(area):
+		objectives.erase(area.get_parent())
+		if objective == area.get_parent() :
+			if objectives.is_empty(): 
+				objective = null
+			else :
+				objective = objectives.front()
 
 func create_proyectile() -> void:
 	var p = projectile.instantiate() as ProjectileGeneric
@@ -44,6 +48,7 @@ func _on_shoot_timer_timeout() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if objective != null:
-		look_at(objective.position)
+		sprite_2d.look_at(objective.position)
+		sprite_2d.rotation += deg_to_rad(135) 
 		
 		

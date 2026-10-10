@@ -22,10 +22,15 @@ func _on_area_entered(area: Area2D)-> void:
 		_on_impact()
 	
 func _on_area_exit(area: Area2D)-> void:
-	pass
+	if area.get_parent() is TurretGeneric:
+		queue_free()
+		
 
 func _process(delta: float) -> void:
-	global_position = global_position.move_toward(objective.position, speed * delta)
+	if is_instance_valid(objective):
+		global_position = global_position.move_toward(objective.position, speed * delta)
+	else:
+		queue_free()
 	
 func _on_impact() -> void:
 	queue_free()

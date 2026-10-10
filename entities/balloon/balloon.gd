@@ -3,9 +3,26 @@ class_name Ballon
 
 @export var hp : int = 1
 var speed : float = 200.0 
-
+#TODO el path tienen que recuperarlo del GameManager
 var path: PackedVector2Array = []
 var target_point_index: int = 0
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
+var type_balloons : Dictionary = {
+	1:load("res://assets/texture/ballons/r_ballons.tres"),
+	2:load("res://assets/texture/ballons/b_ballons.tres"),
+	3:load("res://assets/texture/ballons/g_ballons.tres"),
+	4:load("res://assets/texture/ballons/y_ballons.tres")
+}
+
+func setup(_hp:int,_speed:int,_path:PackedVector2Array)-> void:
+	set_color(_hp)
+	speed = _speed
+	set_path(_path)
+	
+func set_color(_hp) -> void:
+	hp = _hp
+	sprite_2d.texture = type_balloons.get(hp)
 
 func set_path(_path: PackedVector2Array) -> void:
 	path = _path
@@ -32,6 +49,7 @@ func destroy_balloon() -> void :
 	
 func set_damage(_damage) -> void:
 	hp = hp - _damage
-	print("set damage")
 	if hp <= 0:
 		destroy_balloon()
+	else:
+		set_color(hp)

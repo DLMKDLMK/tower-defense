@@ -27,3 +27,9 @@ tile_set = ExtResource("1_o5qli")
 
 [node name="TurretGeneric" parent="turrets" unique_id=322976851 instance=ExtResource("4_jyhfs")]
 position = Vector2(328, 155)
+
+[node name="TurretGeneric2" parent="turrets" unique_id=100559379 instance=ExtResource("4_jyhfs")]
+position = Vector2(464, 461)
+
+[node name="TurretGeneric3" parent="turrets" unique_id=1340852608 instance=ExtResource("4_jyhfs")]
+position = Vector2(879, 352)
