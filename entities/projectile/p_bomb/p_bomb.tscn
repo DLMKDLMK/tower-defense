@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bq8kllfi3o2hm"]
+
+[ext_resource type="Script" uid="uid://dg7uc6760etbg" path="res://entities/projectile/p_bomb/p_bomb.gd" id="1_b51rq"]
+[ext_resource type="Texture2D" uid="uid://c2lyk1e5sxcm4" path="res://assets/texture/projectile/p_bomb.tres" id="2_b51rq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rh1e8"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b51rq"]
+radius = 20.0
+
+[node name="PBomb" type="Node2D" unique_id=1302091290]
+script = ExtResource("1_b51rq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=204906927]
+position = Vector2(5.9604645e-08, 5.9604645e-08)
+texture = ExtResource("2_b51rq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=330946597]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1354056295]
+shape = SubResource("CircleShape2D_rh1e8")
+
+[node name="ExpArea2D" type="Area2D" parent="." unique_id=168952729]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExpArea2D" unique_id=1412320708]
+shape = SubResource("CircleShape2D_b51rq")
+debug_color = Color(0.9999998, 0.017443307, 0.014300801, 0.41960785)
+
+[connection signal="area_entered" from="ExpArea2D" to="." method="_on_exp_area_entered"]

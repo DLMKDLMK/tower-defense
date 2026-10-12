@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o2w0q"]
 radius = 5.0
-height = 15.0
+height = 14.67
 
 [node name="Balloon" type="Node2D" unique_id=782191310]
 scale = Vector2(3, 3)
@@ -20,4 +20,5 @@ texture = ExtResource("1_o2w0q")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=445750036]
+position = Vector2(0.33333334, -1)
 shape = SubResource("CapsuleShape2D_o2w0q")

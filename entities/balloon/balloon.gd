@@ -1,7 +1,8 @@
 extends Node2D
 class_name Ballon
 
-@export var hp : int = 1
+var b_name : String
+var hp : int = 1
 var speed : float = 200.0 
 #TODO el path tienen que recuperarlo del GameManager
 var path: PackedVector2Array = []

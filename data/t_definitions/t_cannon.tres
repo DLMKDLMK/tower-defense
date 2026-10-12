@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TurretDefinition" format=3 uid="uid://suslccqmles1"]
+
+[ext_resource type="PackedScene" uid="uid://bq8kllfi3o2hm" path="res://entities/projectile/p_bomb/p_bomb.tscn" id="1_tou7d"]
+[ext_resource type="Script" uid="uid://tdn8g3xloyq3" path="res://data/t_definitions/t_definition.gd" id="2_ste01"]
+[ext_resource type="Texture2D" uid="uid://citdjjd3pqgfj" path="res://assets/texture/turrets/t_cannon.tres" id="3_ste01"]
+
+[resource]
+script = ExtResource("2_ste01")
+t_name = "t_dart"
+t_range = 150
+damage = 2
+att_speed = 1
+price = 500
+projectile = ExtResource("1_tou7d")
+sprite = ExtResource("3_ste01")

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BallonDefinitions" format=3 uid="uid://f1qi6p0v0am"]
+
+[ext_resource type="Texture2D" uid="uid://bxi0qe8mbdqks" path="res://assets/texture/ballons/r_ballons.tres" id="1_lf5i7"]
+[ext_resource type="Script" uid="uid://c2yg3rwlx0bu1" path="res://data/b_definitions/b_definitions.gd" id="1_mvy2j"]
+
+[resource]
+script = ExtResource("1_mvy2j")
+b_name = "b_red"
+b_texture = ExtResource("1_lf5i7")

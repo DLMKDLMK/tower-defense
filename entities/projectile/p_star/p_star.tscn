@@ -1,16 +1,19 @@
 [gd_scene format=3 uid="uid://cglp7ahh2dywb"]
 
-[ext_resource type="Script" uid="uid://cwlxdl5fvqxbj" path="res://entities/projectile/projectile.gd" id="1_y6co7"]
+[ext_resource type="Script" uid="uid://btojwq6op6p7h" path="res://entities/projectile/p_star/p_star.gd" id="1_y6co7"]
 [ext_resource type="Texture2D" uid="uid://j13po2utfw27" path="res://assets/texture/projectile/p_star.tres" id="2_ic1v5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hxtya"]
-radius = 4.0
+radius = 7.0
 
-[node name="ProjectileDart" type="Node2D" unique_id=1302091290 node_paths=PackedStringArray("sprite_2d")]
+[node name="ProjectileStar" type="Node2D" unique_id=1302091290]
 script = ExtResource("1_y6co7")
-sprite_2d = NodePath("Sprite2D")
+p_name = "P_STAR"
+speed = 400.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=204906927]
+position = Vector2(-2.3841858e-07, 2.3841858e-07)
+scale = Vector2(1.25, 1.25)
 texture = ExtResource("2_ic1v5")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=330946597]

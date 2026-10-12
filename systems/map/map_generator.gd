@@ -34,11 +34,10 @@ func make_path() -> Array[Vector2i]:
 	return astar.get_id_path(t_start,t_end)
 
 func spawn_ballons(total: int,path : Array)-> void:
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	for i in total:
 		var b = b_scene.instantiate() as Ballon
 		b.name = "ballon"+ str(i)
-		#print(b)
 		
 		var cell_path: Array[Vector2i] = make_path()
 		var world_path: PackedVector2Array = []
@@ -48,10 +47,10 @@ func spawn_ballons(total: int,path : Array)-> void:
 				
 		b_node.add_child(b)
 		
-		b.setup(randi_range(1,4),200,world_path)
+		b.setup(randi_range(1,4),150,world_path)
 		
 		await get_tree().create_timer(0.5).timeout
 
 func _ready() -> void:
 	var path = make_path()
-	spawn_ballons(30,path)
+	spawn_ballons(50,path)

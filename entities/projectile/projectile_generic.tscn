@@ -9,7 +9,7 @@ radius = 3.0
 [node name="ProjectileGeneric" type="Node2D" unique_id=1302091290]
 script = ExtResource("1_rh1e8")
 p_name = "P_GENERIC"
-speed = 450.0
+speed = 500.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=204906927]
 scale = Vector2(0.125, 0.125)

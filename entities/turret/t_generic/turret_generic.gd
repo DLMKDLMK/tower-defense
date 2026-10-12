@@ -40,9 +40,9 @@ func _on_area_exit(area: Area2D)-> void:
 
 func create_proyectile() -> void:
 	var p = projectile.instantiate() as ProjectileGeneric
-	p.setup(damage,objective)
 	p.position = marker_2d.position
 	add_child(p)
+	p.setup(damage,objective)
 	
 func _on_shoot_timer_timeout() -> void:
 	if objective != null:
