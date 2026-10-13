@@ -16,6 +16,13 @@ var type_balloons : Dictionary = {
 	4:load("res://assets/texture/ballons/y_ballons.tres")
 }
 
+func get_velocity() -> Vector2:
+	if path.size() == 0 or target_point_index >= path.size():
+		return Vector2.ZERO
+	var target_position = path[target_point_index]
+	var dir = (target_position - global_position).normalized()
+	return dir * speed
+
 func setup(_hp:int,_speed:int,_path:PackedVector2Array)-> void:
 	set_color(_hp)
 	speed = _speed

@@ -7,12 +7,10 @@ class_name ProjectileGeneric
 @export var speed : float = 600.0 
 var damage : int 
 var objective : Node2D
-var p_static : bool
 
 func setup(_damage :int , _obj : Node2D) -> void: 
 	damage = _damage
 	objective = _obj
-	p_static = false
 	
 func _ready() -> void:
 	area_2d.area_entered.connect(_on_area_entered)
@@ -40,3 +38,10 @@ func _process(delta: float) -> void:
 	
 func _on_impact() -> void:
 	queue_free()
+	
+func predict_position(t_posicion: Vector2, target: Ballon) -> Vector2:
+	if speed <= 0.0:
+		return target.global_position
+	var to_target = target.global_position - t_posicion
+	var t = to_target.length() / speed
+	return target.global_position + target.get_velocity() * t

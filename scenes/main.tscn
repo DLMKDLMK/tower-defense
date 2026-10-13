@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cjtadnegv84el" path="res://entities/turret/t_generic/turret_generic3.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://br2dryaaf8c7f" path="res://entities/turret/t_generic/turret_generic2.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dsjpyqdrp3kmd" path="res://entities/turret/t_generic/turret_generic.tscn" id="5_tefeu"]
+[ext_resource type="PackedScene" uid="uid://bnorw46o84sft" path="res://entities/turret/t_generic/turret_generic4.tscn" id="7_o6xl0"]
 
 [node name="Main" type="Node2D" unique_id=1608408838]
 script = ExtResource("1_0wfyh")
@@ -28,10 +29,13 @@ tile_set = ExtResource("1_o5qli")
 [node name="turrets" type="Node2D" parent="." unique_id=2066162441]
 
 [node name="TurretGeneric4" parent="turrets" unique_id=322976851 instance=ExtResource("4_jyhfs")]
-position = Vector2(109.000015, 113)
+position = Vector2(588, 459)
 
 [node name="TurretGeneric" parent="turrets" unique_id=376249645 instance=ExtResource("5_tefeu")]
 position = Vector2(110, 501)
 
 [node name="TurretGeneric2" parent="turrets" unique_id=1981125222 instance=ExtResource("5_tbgi4")]
 position = Vector2(358, 506)
+
+[node name="TurretGeneric3" parent="turrets" unique_id=1991411253 instance=ExtResource("7_o6xl0")]
+position = Vector2(110.000015, 150)

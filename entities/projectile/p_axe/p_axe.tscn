@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://mtag8pesdqwp"]
+
+[ext_resource type="Script" uid="uid://dnnb8oid881cx" path="res://entities/projectile/p_axe/p_axe.gd" id="1_uoh00"]
+[ext_resource type="Texture2D" uid="uid://bhno67dfdska0" path="res://assets/texture/projectile/p_axe.tres" id="2_uoh00"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tipki"]
+radius = 4.0
+
+[node name="ProjectileAxe" type="Node2D" unique_id=1302091290]
+script = ExtResource("1_uoh00")
+p_name = "P_AXE"
+speed = 450.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=204906927]
+position = Vector2(1.1920929e-07, 1.1920929e-07)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_uoh00")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=330946597]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1354056295]
+position = Vector2(0, -3)
+rotation = -0.6067912
+shape = SubResource("CircleShape2D_tipki")
