@@ -3,7 +3,7 @@ class_name TurretGeneric
 @export var t_name : String = "t_name_generic"
 @export var t_range : int = 50
 @export var damage : int = 1
-@export var att_speed : int = 2
+@export var att_speed : float = 2
 @export var price : int = 100
 @export var projectile : PackedScene
 @export var placeable : String = "Ground"
@@ -11,6 +11,7 @@ class_name TurretGeneric
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var marker_2d: Marker2D = $Sprite2D/Marker2D
+@onready var range_line: Line2D = $RangeLine
 
 var objective : Node2D
 var objectives : Array[Node2D]
@@ -22,6 +23,7 @@ func _ready() -> void:
 	shoot_timer.timeout.connect(_on_shoot_timer_timeout)
 	shoot_timer.wait_time = 1.0/ att_speed
 	shoot_timer.start()
+	range_line.visible=false
 
 func _on_area_entered(area: Area2D)-> void:
 	if area.get_parent() is Ballon:

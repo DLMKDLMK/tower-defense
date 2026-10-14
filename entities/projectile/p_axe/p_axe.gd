@@ -17,7 +17,7 @@ func setup(_damage :int , _obj : Node2D) -> void:
 	var tower_pos = get_parent().position
 	var direction = (predict_position(tower_pos,_obj) - tower_pos).normalized()
 	var perp = direction.rotated(PI / 2)
-	radius = 70
+	radius = get_parent().t_range
 	center = tower_pos + perp * radius
 	start_angle = (tower_pos - center).angle()
 	angle = start_angle
@@ -33,7 +33,7 @@ func _on_area_exit(area: Area2D)-> void:
 	pass
 
 func _process(delta: float) -> void:
-	rotation += rotation_speed * delta
+	rotation -= rotation_speed * delta
 	
 	if is_returning:
 		return

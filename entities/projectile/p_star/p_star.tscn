@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://j13po2utfw27" path="res://assets/texture/projectile/p_star.tres" id="2_ic1v5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hxtya"]
-radius = 7.0
+radius = 6.0
 
 [node name="ProjectileStar" type="Node2D" unique_id=1302091290]
 script = ExtResource("1_y6co7")
@@ -13,7 +13,6 @@ speed = 400.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=204906927]
 position = Vector2(-2.3841858e-07, 2.3841858e-07)
-scale = Vector2(1.25, 1.25)
 texture = ExtResource("2_ic1v5")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=330946597]

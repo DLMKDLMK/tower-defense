@@ -33,6 +33,7 @@ func _process(delta: float) -> void:
 		look_at(objective.position)
 		rotation += deg_to_rad(135) 
 		global_position = global_position.move_toward(objective.position, speed * delta)
+		
 	else:
 		queue_free()
 	

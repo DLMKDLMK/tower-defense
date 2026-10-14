@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BallonDefinitions" format=3 uid="uid://c5dpipinhpbrs"]
 
-[ext_resource type="Texture2D" uid="uid://bl4gno1dykfcv" path="res://assets/texture/ballons/b_ballons.tres" id="1_nes16"]
+[ext_resource type="Texture2D" uid="uid://bl4gno1dykfcv" path="res://assets/texture/ballons/normal/b_blue.tres" id="1_nes16"]
 [ext_resource type="Script" uid="uid://c2yg3rwlx0bu1" path="res://data/b_definitions/b_definitions.gd" id="2_q1044"]
 
 [resource]

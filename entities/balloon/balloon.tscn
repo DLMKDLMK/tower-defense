@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bqqklh7ixp7fu"]
 
-[ext_resource type="Texture2D" uid="uid://bxi0qe8mbdqks" path="res://assets/texture/ballons/r_ballons.tres" id="1_o2w0q"]
+[ext_resource type="Texture2D" uid="uid://bxi0qe8mbdqks" path="res://assets/texture/ballons/normal/b_red.tres" id="1_o2w0q"]
 [ext_resource type="Script" uid="uid://cxnu2eabslj0v" path="res://entities/balloon/balloon.gd" id="1_t7pf5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o2w0q"]

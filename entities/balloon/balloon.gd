@@ -9,11 +9,16 @@ var path: PackedVector2Array = []
 var target_point_index: int = 0
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
+var b_exp : Texture2D = load("res://assets/texture/ballons/b_explosion.tres") 
+
 var type_balloons : Dictionary = {
-	1:load("res://assets/texture/ballons/r_ballons.tres"),
-	2:load("res://assets/texture/ballons/b_ballons.tres"),
-	3:load("res://assets/texture/ballons/g_ballons.tres"),
-	4:load("res://assets/texture/ballons/y_ballons.tres")
+	1:load("res://assets/texture/ballons/normal/b_red.tres"),
+	2:load("res://assets/texture/ballons/normal/b_blue.tres"),
+	3:load("res://assets/texture/ballons/normal/b_yellow.tres"),
+	4:load("res://assets/texture/ballons/normal/b_green.tres"),
+	5:load("res://assets/texture/ballons/normal/b_orange.tres"),
+	6:load("res://assets/texture/ballons/normal/b_purple.tres"),
+	7:load("res://assets/texture/ballons/normal/b_rainbow.tres")
 }
 
 func get_velocity() -> Vector2:
@@ -53,6 +58,8 @@ func _on_path_finished() -> void:
 	destroy_balloon()
 	
 func destroy_balloon() -> void :
+	sprite_2d.texture = b_exp
+	await get_tree().create_timer(0.1).timeout
 	queue_free()
 	
 func set_damage(_damage) -> void:

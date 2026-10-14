@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://br6nc6n7p4d2x"]
+
+[ext_resource type="Script" uid="uid://n817lv8x751a" path="res://entities/turret/t_generic/turret_generic.gd" id="1_361hn"]
+[ext_resource type="PackedScene" uid="uid://bdfc7kowpgsbt" path="res://entities/projectile/p_dart/p_dart.tscn" id="2_jeaer"]
+[ext_resource type="Texture2D" uid="uid://i0co1a4ccso7" path="res://assets/texture/turrets/t_ship.tres" id="3_361hn"]
+[ext_resource type="Shape2D" uid="uid://dinfpmi2j2iqe" path="res://entities/turret/t_generic/range_colision.tres" id="4_dhm2d"]
+[ext_resource type="Script" uid="uid://c2ay4hs7068el" path="res://entities/turret/t_generic/range_line.gd" id="5_hm0fs"]
+
+[node name="TurretGeneric" type="Node2D" unique_id=322976851]
+scale = Vector2(3, 3)
+script = ExtResource("1_361hn")
+t_name = "t_navy"
+t_range = 200
+att_speed = 1
+price = 300
+projectile = ExtResource("2_jeaer")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=538980350]
+texture_filter = 1
+rotation = 2.3561945
+texture = ExtResource("3_361hn")
+
+[node name="Marker2D" type="Marker2D" parent="Sprite2D" unique_id=1841361344]
+position = Vector2(-2.8284268, -2.8284268)
+rotation = -2.3561945
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="RangeArea" type="Area2D" parent="." unique_id=1885657870]
+collision_layer = 2
+
+[node name="RangeColision" type="CollisionShape2D" parent="RangeArea" unique_id=85014471]
+visible = false
+rotation = 0.004371502
+shape = ExtResource("4_dhm2d")
+
+[node name="RangeLine" type="Line2D" parent="." unique_id=1934058070]
+width = 0.5
+default_color = Color(1, 1, 1, 0.5294118)
+antialiased = true
+script = ExtResource("5_hm0fs")
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=1563839165]
+autostart = true

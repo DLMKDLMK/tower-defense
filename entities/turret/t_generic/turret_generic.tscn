@@ -9,7 +9,7 @@
 [node name="TurretGeneric" type="Node2D" unique_id=322976851]
 scale = Vector2(3, 3)
 script = ExtResource("1_maew2")
-t_range = 150
+t_range = 65
 projectile = ExtResource("2_4llu2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=538980350]

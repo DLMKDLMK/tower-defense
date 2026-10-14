@@ -10,7 +10,7 @@
 scale = Vector2(3, 3)
 script = ExtResource("1_ye5u4")
 t_name = "t_cannon"
-t_range = 200
+t_range = 70
 damage = 2
 att_speed = 1
 projectile = ExtResource("2_ye5u4")

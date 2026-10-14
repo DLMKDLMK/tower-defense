@@ -10,7 +10,6 @@
 scale = Vector2(3, 3)
 script = ExtResource("1_p3spa")
 t_name = "t_ninja"
-t_range = 150
 att_speed = 3
 projectile = ExtResource("2_p3spa")
 

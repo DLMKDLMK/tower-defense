@@ -10,8 +10,8 @@
 scale = Vector2(3, 3)
 script = ExtResource("1_t6led")
 t_name = "t_viking"
-t_range = 150
-att_speed = 1
+t_range = 80
+att_speed = 1.5
 projectile = ExtResource("2_t6led")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=538980350]

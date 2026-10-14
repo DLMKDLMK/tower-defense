@@ -47,10 +47,10 @@ func spawn_ballons(total: int,path : Array)-> void:
 				
 		b_node.add_child(b)
 		
-		b.setup(randi_range(1,4),150,world_path)
+		b.setup(randi_range(1,7),150,world_path)
 		
 		await get_tree().create_timer(0.5).timeout
 
 func _ready() -> void:
 	var path = make_path()
-	spawn_ballons(50,path)
+	spawn_ballons(100,path)
