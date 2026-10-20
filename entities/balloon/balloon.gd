@@ -7,11 +7,12 @@ var speed : float = 200.0
 #TODO el path tienen que recuperarlo del GameManager
 var path: PackedVector2Array = []
 var target_point_index: int = 0
+var b_type : Constants.ballon_type = Constants.ballon_type.NORMAL
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 var b_exp : Texture2D = load("res://assets/texture/ballons/b_explosion.tres") 
 
-var type_balloons : Dictionary = {
+var b_sprites : Dictionary = {
 	1:load("res://assets/texture/ballons/normal/b_red.tres"),
 	2:load("res://assets/texture/ballons/normal/b_blue.tres"),
 	3:load("res://assets/texture/ballons/normal/b_yellow.tres"),
@@ -35,7 +36,7 @@ func setup(_hp:int,_speed:int,_path:PackedVector2Array)-> void:
 	
 func set_color(_hp) -> void:
 	hp = _hp
-	sprite_2d.texture = type_balloons.get(hp)
+	sprite_2d.texture = b_sprites.get(hp)
 
 func set_path(_path: PackedVector2Array) -> void:
 	path = _path
@@ -46,13 +47,15 @@ func set_path(_path: PackedVector2Array) -> void:
 		target_point_index = 1
 
 func _process(delta: float) -> void:
-	var target_position = path[target_point_index]
-	global_position = global_position.move_toward(target_position, speed * delta)
+	if is_instance_valid(self):
+		if target_point_index < path.size():
+			var target_position = path[target_point_index]
+			global_position = global_position.move_toward(target_position, speed * delta)
 
-	if global_position.distance_to(target_position) < 2.0:
-		target_point_index += 1
-		if target_point_index >= path.size():
-			_on_path_finished()
+			if global_position.distance_to(target_position) < 2.0:
+				target_point_index += 1
+				if target_point_index >= path.size():
+					_on_path_finished()
 
 func _on_path_finished() -> void:
 	destroy_balloon()

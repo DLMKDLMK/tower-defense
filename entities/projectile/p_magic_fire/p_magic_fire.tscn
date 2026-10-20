@@ -50,6 +50,7 @@ _data = {
 script = ExtResource("1_xftuv")
 p_name = "P_MAGIC_FIRE"
 speed = 350.0
+d_type = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=204906927]
 position = Vector2(1.1920929e-07, 1.1920929e-07)

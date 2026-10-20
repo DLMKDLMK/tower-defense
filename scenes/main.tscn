@@ -3,12 +3,7 @@
 [ext_resource type="Script" uid="uid://ojl867p2jtk7" path="res://systems/map/map_generator.gd" id="1_0wfyh"]
 [ext_resource type="TileSet" uid="uid://bt4jvke0uq637" path="res://assets/tileset/map_tile.tres" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://bqqklh7ixp7fu" path="res://entities/balloon/balloon.tscn" id="2_sugp2"]
-[ext_resource type="PackedScene" uid="uid://cjtadnegv84el" path="res://entities/turret/t_generic/turret_generic3.tscn" id="4_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://br2dryaaf8c7f" path="res://entities/turret/t_generic/turret_generic2.tscn" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://dsjpyqdrp3kmd" path="res://entities/turret/t_generic/turret_generic.tscn" id="5_tefeu"]
-[ext_resource type="PackedScene" uid="uid://bnorw46o84sft" path="res://entities/turret/t_generic/turret_generic4.tscn" id="7_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://br6nc6n7p4d2x" path="res://entities/turret/t_navy/t_navy.tscn" id="8_tipki"]
-[ext_resource type="PackedScene" uid="uid://cghtomej3yg03" path="res://entities/turret/t_generic/turret_generic5.tscn" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://dsjpyqdrp3kmd" path="res://entities/turret/t_machine/turret_machine.tscn" id="5_tefeu"]
 
 [node name="Main" type="Node2D" unique_id=1608408838]
 script = ExtResource("1_0wfyh")
@@ -30,25 +25,6 @@ tile_set = ExtResource("1_o5qli")
 
 [node name="turrets" type="Node2D" parent="." unique_id=2066162441]
 
-[node name="TurretGeneric4" parent="turrets" unique_id=322976851 instance=ExtResource("4_jyhfs")]
-position = Vector2(236.00003, 545)
-att_speed = 2.0
-
-[node name="TurretGeneric6" parent="turrets" unique_id=1176958636 instance=ExtResource("9_85g3d")]
-position = Vector2(110, 130.00002)
-
-[node name="TurretGeneric" parent="turrets" unique_id=376249645 instance=ExtResource("5_tefeu")]
-position = Vector2(105, 507)
-
-[node name="TurretGeneric5" parent="turrets" unique_id=889724429 instance=ExtResource("8_tipki")]
-position = Vector2(597, 462)
-t_range = 100
-att_speed = 2.0
-
-[node name="TurretGeneric2" parent="turrets" unique_id=1981125222 instance=ExtResource("5_tbgi4")]
-position = Vector2(535, 340)
-att_speed = 2.0
-
-[node name="TurretGeneric3" parent="turrets" unique_id=1991411253 instance=ExtResource("7_o6xl0")]
-position = Vector2(241, 142)
-att_speed = 2.0
+[node name="TurretMachine" parent="." unique_id=322976851 instance=ExtResource("5_tefeu")]
+position = Vector2(109, 508)
+rotation = -0.033225566

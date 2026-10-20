@@ -11,6 +11,7 @@ radius = 15.0
 
 [node name="PBomb" type="Node2D" unique_id=1302091290]
 script = ExtResource("1_b51rq")
+d_type = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=204906927]
 position = Vector2(5.9604645e-08, 5.9604645e-08)

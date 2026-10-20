@@ -9,10 +9,9 @@
 [node name="TurretGeneric" type="Node2D" unique_id=322976851]
 scale = Vector2(3, 3)
 script = ExtResource("1_hv8g4")
-t_name = "t_mage"
-t_range = 70
-att_speed = 0.35
-price = 700
+t_name = "t_machine"
+att_speed = 0.2
+price = 450
 projectile = ExtResource("2_hv8g4")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=538980350]
@@ -29,9 +28,9 @@ scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 2
 
 [node name="RangeColision" type="CollisionShape2D" parent="RangeArea" unique_id=85014471]
-visible = false
 rotation = 0.004371502
 shape = ExtResource("4_6bjab")
+debug_color = Color(0.6694861, 0.5100163, 3.85046e-07, 0.41960785)
 
 [node name="RangeLine" type="Line2D" parent="." unique_id=1934058070]
 width = 0.5

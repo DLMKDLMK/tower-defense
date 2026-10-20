@@ -9,7 +9,6 @@ radius = 6.0
 [node name="ProjectileStar" type="Node2D" unique_id=1302091290]
 script = ExtResource("1_y6co7")
 p_name = "P_STAR"
-speed = 400.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=204906927]
 position = Vector2(-2.3841858e-07, 2.3841858e-07)

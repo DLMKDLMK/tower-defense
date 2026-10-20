@@ -7,7 +7,8 @@ class_name ProjectileGeneric
 @export var speed : float = 600.0 
 var damage : int 
 var objective : Node2D
-
+@export var d_type : Constants.damage_type = Constants.damage_type.IMPACT
+ 
 func setup(_damage :int , _obj : Node2D) -> void: 
 	damage = _damage
 	objective = _obj
@@ -23,8 +24,7 @@ func _on_area_entered(area: Area2D)-> void:
 		_on_impact()
 	
 func _on_area_exit(area: Area2D)-> void:
-	if area.get_parent() is TurretGeneric:
-		await get_tree().create_timer(0.1).timeout
+	if area.get_parent() == get_parent():
 		queue_free()
 		
 

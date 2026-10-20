@@ -8,6 +8,7 @@ class_name TurretGeneric
 @export var projectile : PackedScene
 @export var placeable : String = "Ground"
 @onready var range_area: Area2D = $RangeArea
+@onready var range_colision: CollisionShape2D = $RangeArea/RangeColision
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var marker_2d: Marker2D = $Sprite2D/Marker2D
@@ -24,7 +25,9 @@ func _ready() -> void:
 	shoot_timer.wait_time = 1.0/ att_speed
 	shoot_timer.start()
 	range_line.visible=false
-
+	
+	range_colision.shape.set_radius(t_range)
+	
 func _on_area_entered(area: Area2D)-> void:
 	if area.get_parent() is Ballon:
 		var b = area.get_parent()

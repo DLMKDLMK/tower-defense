@@ -27,9 +27,9 @@ scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 2
 
 [node name="RangeColision" type="CollisionShape2D" parent="RangeArea" unique_id=85014471]
-visible = false
 rotation = 0.004371502
 shape = ExtResource("4_b4xvp")
+debug_color = Color(0.6626741, 0.5136696, 0, 0.41960785)
 
 [node name="RangeLine" type="Line2D" parent="." unique_id=1934058070]
 width = 0.5

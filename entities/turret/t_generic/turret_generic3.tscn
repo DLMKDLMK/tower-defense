@@ -12,7 +12,6 @@ script = ExtResource("1_ye5u4")
 t_name = "t_cannon"
 t_range = 70
 damage = 2
-att_speed = 1
 projectile = ExtResource("2_ye5u4")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=538980350]
@@ -21,7 +20,7 @@ rotation = 2.3561945
 texture = ExtResource("3_ye5u4")
 
 [node name="Marker2D" type="Marker2D" parent="Sprite2D" unique_id=1841361344]
-position = Vector2(-6.363961, 2.1213198)
+position = Vector2(-2.3570228, -2.3570228)
 rotation = -2.3561945
 scale = Vector2(0.99999994, 0.99999994)
 
@@ -29,9 +28,9 @@ scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 2
 
 [node name="RangeColision" type="CollisionShape2D" parent="RangeArea" unique_id=85014471]
-visible = false
 rotation = 0.004371502
 shape = ExtResource("4_e3kuu")
+debug_color = Color(0.65884745, 0.515688, 0, 0.41960785)
 
 [node name="RangeLine" type="Line2D" parent="." unique_id=1934058070]
 width = 0.5

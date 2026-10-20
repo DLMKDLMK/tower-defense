@@ -5,3 +5,4 @@ class_name BallonDefinitions
 @export var hp : int = 1
 @export var speed : float = 200.0
 @export var b_texture : Texture2D 
+@export var b_type: int

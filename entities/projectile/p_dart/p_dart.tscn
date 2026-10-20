@@ -7,9 +7,8 @@
 radius = 2.01
 height = 10.02
 
-[node name="ProjectileDart" type="Node2D" unique_id=1302091290 node_paths=PackedStringArray("sprite_2d")]
+[node name="ProjectileDart" type="Node2D" unique_id=1302091290]
 script = ExtResource("1_5f7kh")
-sprite_2d = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=204906927]
 texture = ExtResource("2_f1itd")
