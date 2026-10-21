@@ -1,15 +1,13 @@
 [gd_scene format=4 uid="uid://b4pwvgvcd3dlb"]
 
-[ext_resource type="Script" uid="uid://ojl867p2jtk7" path="res://systems/map/map_generator.gd" id="1_0wfyh"]
 [ext_resource type="TileSet" uid="uid://bt4jvke0uq637" path="res://assets/tileset/map_tile.tres" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://bqqklh7ixp7fu" path="res://entities/balloon/balloon.tscn" id="2_sugp2"]
+[ext_resource type="Script" uid="uid://cnxji6li6fxe3" path="res://scenes/main.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://bqqklh7ixp7fu" path="res://entities/balloon/balloon.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://dsjpyqdrp3kmd" path="res://entities/turret/t_machine/turret_machine.tscn" id="5_tefeu"]
 
 [node name="Main" type="Node2D" unique_id=1608408838]
-script = ExtResource("1_0wfyh")
-b_scene = ExtResource("2_sugp2")
-t_start = Vector2i(-2, 2)
-t_end = Vector2i(37, 12)
+script = ExtResource("1_sugp2")
+b_scene = ExtResource("2_jyhfs")
 
 [node name="scenary" type="Node2D" parent="." unique_id=1042516931]
 
@@ -28,3 +26,8 @@ tile_set = ExtResource("1_o5qli")
 [node name="TurretMachine" parent="." unique_id=322976851 instance=ExtResource("5_tefeu")]
 position = Vector2(109, 508)
 rotation = -0.033225566
+
+[node name="WaveTimer" type="Timer" parent="." unique_id=1541454248]
+wait_time = 2.0
+
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

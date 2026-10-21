@@ -1,21 +1,33 @@
 extends Node
 class_name MapGenerator
-@onready var background: TileMapLayer = $scenary/background
-@onready var path_layer: TileMapLayer = $scenary/path
-@export var b_scene : PackedScene
-@onready var b_node: Node2D = $ballons
+
+var path_layer
+var b_scene
+var b_node
+var path 
 
 #Mejora hacerlo con una funcion
-@export var t_start : Vector2i
-@export var t_end : Vector2i
+var t_start : Vector2i 
+var t_end : Vector2i 
 
 #TODO
+func _setup(_path_layer: Node2D , _b_scene : PackedScene ,_b_node :Node2D,t1,t2) -> void:
+	path_layer = _path_layer
+	b_scene = _b_scene
+	b_node = _b_node
+	t_start = t1
+	t_end = t2 
+	path = make_path()
+
 func get_path_start_end() -> void:
 	pass
 
 func make_path() -> Array[Vector2i]:
 	var rect : Rect2 = path_layer.get_used_rect()
 	var astar =  AStarGrid2D.new()
+	
+	rect = rect.expand(t_start)
+	rect = rect.expand(t_end)
 	
 	astar.region = rect
 	astar.cell_size = Vector2i(1,1)
@@ -33,13 +45,12 @@ func make_path() -> Array[Vector2i]:
 	
 	return astar.get_id_path(t_start,t_end)
 
-func spawn_ballons(total: int,path : Array)-> void:
-	await get_tree().create_timer(2.0).timeout
+func spawn_ballons(total: int)-> void:
 	for i in total:
 		var b = b_scene.instantiate() as Ballon
 		b.name = "ballon"+ str(i)
 		
-		var cell_path: Array[Vector2i] = make_path()
+		var cell_path: Array[Vector2i] = path
 		var world_path: PackedVector2Array = []
 
 		for cell in cell_path:
@@ -47,10 +58,6 @@ func spawn_ballons(total: int,path : Array)-> void:
 				
 		b_node.add_child(b)
 		
-		b.setup(randi_range(1,7),250,world_path)
+		b.setup(randi_range(1,3),250,world_path)
+		await b_node.get_tree().create_timer(0.5).timeout
 		
-		await get_tree().create_timer(0.5).timeout
-
-func _ready() -> void:
-	var path = make_path()
-	spawn_ballons(100,path)
