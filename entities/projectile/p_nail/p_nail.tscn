@@ -8,12 +8,12 @@ radius = 2.5
 height = 9.0
 
 [node name="ProjectileNail" type="Node2D" unique_id=1302091290]
-rotation = 2.3399744
 script = ExtResource("1_lk3sc")
 p_name = "P_NAIL"
 speed = 400.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=204906927]
+rotation = 2.3960302
 texture = ExtResource("2_lk3sc")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=330946597]
@@ -21,5 +21,5 @@ collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1354056295]
-rotation = -0.7507785
+rotation = 1.5762112
 shape = SubResource("CapsuleShape2D_lk3sc")

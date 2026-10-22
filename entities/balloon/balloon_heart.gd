@@ -1,7 +1,7 @@
 extends Ballon
 class_name BallonHeart
 
-var b_sprites : Dictionary = {
+var bh_sprites : Dictionary = {
 	1:load("res://assets/texture/ballons/normal/b_red.tres"),
 	2:load("res://assets/texture/ballons/normal/b_blue.tres"),
 	3:load("res://assets/texture/ballons/normal/b_yellow.tres"),

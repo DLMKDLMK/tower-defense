@@ -1,12 +1,16 @@
 extends TurretGeneric
 class_name TurretMachine
-@onready var spawn_marker = [$Sprite2D/Spawn1, $Sprite2D/Spawn2, $Sprite2D/Spawn3, $Sprite2D/Spawn4, $Sprite2D/Spawn5, $Sprite2D/Spawn6, $Sprite2D/Spawn7, $Sprite2D/Spawn8]
+var p_number : int = 6
 
 func create_proyectile() -> void:
-	for s in spawn_marker:
-		var p = projectile.instantiate() as ProjectileGeneric
+	var rotation : float = 0
+	for i in range(p_number):
+		var p = projectile.instantiate() as ProjectileNail
 		p.position = marker_2d.position
-		s.add_child(p)
+		p.rotation = deg_to_rad(360.0*i/p_number)
+		marker_2d.add_child(p)
+		rotation += 45
+		
 		p.setup(damage,objective)
 
 func _on_shoot_timer_timeout() -> void:

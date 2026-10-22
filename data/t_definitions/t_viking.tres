@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TurretDefinition" format=3 uid="uid://blbj64rf0137"]
+
+[ext_resource type="PackedScene" uid="uid://mtag8pesdqwp" path="res://entities/projectile/p_axe/p_axe.tscn" id="1_ur4kk"]
+[ext_resource type="Script" uid="uid://tdn8g3xloyq3" path="res://data/t_definitions/t_definition.gd" id="2_mnkka"]
+[ext_resource type="Texture2D" uid="uid://vatx37axkqkc" path="res://assets/texture/turrets/t_viking.tres" id="3_ur4kk"]
+
+[resource]
+script = ExtResource("2_mnkka")
+t_name = "t_viking"
+t_range = 40
+att_speed = 1
+price = 250
+projectile = ExtResource("1_ur4kk")
+sprite = ExtResource("3_ur4kk")

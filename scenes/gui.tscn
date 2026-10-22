@@ -1,0 +1,164 @@
+[gd_scene format=3 uid="uid://cphkuy7x7nkbl"]
+
+[ext_resource type="Texture2D" uid="uid://duqhj0v2o53ry" path="res://assets/texture/turrets/t_mage.tres" id="1_efmwq"]
+[ext_resource type="Script" uid="uid://cbmp08mf4ed7h" path="res://scenes/gui.gd" id="1_mfius"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66xuh"]
+bg_color = Color(0.20152655, 0.20152661, 0.20152646, 1)
+
+[node name="GUI" type="Control" unique_id=1706337556]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mfius")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=522190752]
+light_mask = 0
+visibility_layer = 2
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 50
+
+[node name="TimeContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=2029482126]
+light_mask = 0
+visibility_layer = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/separation = 10
+
+[node name="TIME" type="Label" parent="HBoxContainer/TimeContainer" unique_id=1427618563]
+layout_mode = 2
+text = "TIME"
+
+[node name="ValueTime" type="Label" parent="HBoxContainer/TimeContainer" unique_id=1913749543]
+layout_mode = 2
+text = "00:00"
+
+[node name="WaveContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=1216466643]
+light_mask = 0
+visibility_layer = 2
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="HBoxContainer/WaveContainer" unique_id=1745800240]
+layout_mode = 2
+text = "WAVE:"
+
+[node name="ValueWave" type="Label" parent="HBoxContainer/WaveContainer" unique_id=82531099]
+layout_mode = 2
+text = "5"
+
+[node name="LiveContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=120032261]
+light_mask = 0
+visibility_layer = 2
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/LiveContainer" unique_id=1977661188]
+layout_mode = 2
+text = "LIVES:"
+
+[node name="ValueLives" type="Label" parent="HBoxContainer/LiveContainer" unique_id=1274579168]
+layout_mode = 2
+text = "50"
+
+[node name="MoneyContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=1000758931]
+light_mask = 0
+visibility_layer = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="HBoxContainer/MoneyContainer" unique_id=1901742810]
+layout_mode = 2
+text = "Money:"
+
+[node name="ValueMoney" type="Label" parent="HBoxContainer/MoneyContainer" unique_id=577576980]
+layout_mode = 2
+text = "500$"
+
+[node name="TurretContainer" type="VBoxContainer" parent="." unique_id=650336238]
+light_mask = 0
+visibility_layer = 2
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -114.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="TurretContainer" unique_id=1287441680]
+light_mask = 0
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_66xuh")
+
+[node name="MarginContainer" type="MarginContainer" parent="TurretContainer/Panel" unique_id=660275511]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -30.0
+offset_right = 57.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="TurretContainer/Panel/MarginContainer" unique_id=1744721582]
+light_mask = 3
+visibility_layer = 3
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="TurretContainer/Panel/MarginContainer/GridContainer" unique_id=1725307029]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("1_efmwq")
+
+[node name="TextureRect2" type="TextureRect" parent="TurretContainer/Panel/MarginContainer/GridContainer" unique_id=1499257893]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("1_efmwq")
+
+[node name="TextureRect3" type="TextureRect" parent="TurretContainer/Panel/MarginContainer/GridContainer" unique_id=1852291771]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("1_efmwq")
+
+[node name="TextureRect4" type="TextureRect" parent="TurretContainer/Panel/MarginContainer/GridContainer" unique_id=1548308993]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("1_efmwq")
+
+[node name="TextureRect5" type="TextureRect" parent="TurretContainer/Panel/MarginContainer/GridContainer" unique_id=1720585361]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("1_efmwq")
+
+[node name="TextureRect6" type="TextureRect" parent="TurretContainer/Panel/MarginContainer/GridContainer" unique_id=710382352]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("1_efmwq")

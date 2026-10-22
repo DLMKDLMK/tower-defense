@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TurretDefinition" format=3 uid="uid://c58stwg2om03i"]
+
+[ext_resource type="PackedScene" uid="uid://ds2bmchk1cthx" path="res://entities/projectile/p_nail/p_nail.tscn" id="1_k1afw"]
+[ext_resource type="Script" uid="uid://tdn8g3xloyq3" path="res://data/t_definitions/t_definition.gd" id="2_djno1"]
+[ext_resource type="Texture2D" uid="uid://b2sc5knmgifd3" path="res://assets/texture/turrets/t_machine.tres" id="3_dueb0"]
+
+[resource]
+script = ExtResource("2_djno1")
+t_name = "t_machine"
+t_range = 35
+att_speed = 0
+price = 350
+projectile = ExtResource("1_k1afw")
+sprite = ExtResource("3_dueb0")
+type = "MACHINE"

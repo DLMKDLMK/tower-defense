@@ -12,5 +12,6 @@ func _on_area_exit(area: Area2D)-> void:
 		
 
 func _process(delta: float) -> void:
-	var direction = get_parent().global_transform.x.normalized()
+	var direction = global_transform.x.normalized()
 	global_position += direction * speed * delta
+	look_at(global_position )

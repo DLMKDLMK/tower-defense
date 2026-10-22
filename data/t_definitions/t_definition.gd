@@ -9,3 +9,4 @@ class_name TurretDefinition
 @export var placeable : String = "Ground"
 @export var projectile : PackedScene
 @export var sprite : Texture2D 
+@export_enum("BASIC","MACHINE") var type = "BASIC"

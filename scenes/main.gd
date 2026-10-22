@@ -8,21 +8,38 @@ var wave_in_progress = false
 @export var b_scene : PackedScene
 @onready var b_node: Node2D = $ballons
 @onready var wave_timer: Timer = $WaveTimer
+@onready var gui: GuiLabel = $CanvasLayer/GUI
+
 
 func _ready() -> void:
 	m_generator = MapGenerator.new()
-	m_generator._setup(path_layer,b_scene,b_node,Vector2i(-2,2),Vector2i(37,12))
+	m_generator._setup(path_layer,b_scene,b_node,Vector2i(-2,2),Vector2i(35,12))
+	
+	wave_in_progress = false
 	wave_timer.start()
-	wave_in_progress = true
+	gui.setup(GameManager.wave,GameManager.lives,GameManager.money)
 
 func _on_wave_timer_timeout() -> void:
-	create_wave()
 	wave_timer.stop()
+	await create_wave()
 	
 func create_wave():
-	if GameManager.new_wave():
-		m_generator.spawn_ballons(30)
-	
-#func _process(delta: float) -> void:
-	#print(wave_timer.time_left)
-	#pass
+	print(GameManager.wave)
+	if wave_in_progress or not GameManager.new_wave():
+		return
+		
+	wave_in_progress = true
+	gui.set_wave(GameManager.wave)
+		
+	await m_generator.spawn_ballons(30)
+
+	while b_node.get_child_count() > 0:
+		await get_tree().create_timer(3.0).timeout
+		
+	wave_in_progress = false
+
+	if GameManager.wave < GameManager.top_wave:
+		wave_timer.start()
+		
+func _process(delta: float) -> void:
+	gui.set_time(GameManager.elapsed_time)
