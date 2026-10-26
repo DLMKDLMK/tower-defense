@@ -58,6 +58,7 @@ func _process(delta: float) -> void:
 					_on_path_finished()
 
 func _on_path_finished() -> void:
+	GameManager.subtract_lives(hp)
 	destroy_balloon()
 	
 func destroy_balloon() -> void :

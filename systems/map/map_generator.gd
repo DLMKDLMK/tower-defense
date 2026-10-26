@@ -1,9 +1,9 @@
 extends Node
 class_name MapGenerator
 
-var path_layer
-var b_scene
-var b_node
+var path_layer : Node2D
+var b_scene : PackedScene
+var b_node : Node2D
 var path 
 
 #Mejora hacerlo con una funcion
@@ -11,12 +11,12 @@ var t_start : Vector2i
 var t_end : Vector2i 
 
 #TODO
-func _setup(_path_layer: Node2D , _b_scene : PackedScene ,_b_node :Node2D,t1,t2) -> void:
+func _setup(_path_layer: Node2D , _b_scene : PackedScene ,_b_node :Node2D,cell_start : Vector2i,cell_end: Vector2i) -> void:
 	path_layer = _path_layer
 	b_scene = _b_scene
 	b_node = _b_node
-	t_start = t1
-	t_end = t2 
+	t_start = cell_start
+	t_end = cell_end 
 	path = make_path()
 
 func get_path_start_end() -> void:

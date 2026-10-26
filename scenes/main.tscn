@@ -24,9 +24,11 @@ tile_set = ExtResource("1_o5qli")
 
 [node name="turrets" type="Node2D" parent="." unique_id=2066162441]
 
-[node name="TurretMachine" parent="." unique_id=322976851 instance=ExtResource("5_tefeu")]
-position = Vector2(109, 508)
+[node name="TurretMachine" parent="turrets" unique_id=322976851 instance=ExtResource("5_tefeu")]
+position = Vector2(418, 337.00003)
 rotation = -0.033225566
+scale = Vector2(2.9999998, 2.9999998)
+att_speed = 1.25
 
 [node name="WaveTimer" type="Timer" parent="." unique_id=1541454248]
 wait_time = 2.0
@@ -34,5 +36,6 @@ wait_time = 2.0
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2020674789]
 
 [node name="GUI" parent="CanvasLayer" unique_id=1706337556 instance=ExtResource("5_tbgi4")]
+metadata/_edit_lock_ = true
 
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
