@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://cphkuy7x7nkbl"]
 
-[ext_resource type="Texture2D" uid="uid://duqhj0v2o53ry" path="res://assets/texture/turrets/t_mage.tres" id="1_efmwq"]
 [ext_resource type="Script" uid="uid://cbmp08mf4ed7h" path="res://scenes/gui.gd" id="1_mfius"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66xuh"]
@@ -126,42 +125,14 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="GridContainer" type="GridContainer" parent="TurretContainer/Panel/MarginContainer" unique_id=1744721582]
+[node name="GridTextureContainer" type="GridContainer" parent="TurretContainer/Panel/MarginContainer" unique_id=1744721582]
 light_mask = 3
 visibility_layer = 3
+custom_minimum_size = Vector2(50, 50)
+clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
 columns = 2
-
-[node name="TextureRect" type="TextureRect" parent="TurretContainer/Panel/MarginContainer/GridContainer" unique_id=1725307029]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture = ExtResource("1_efmwq")
-
-[node name="TextureRect2" type="TextureRect" parent="TurretContainer/Panel/MarginContainer/GridContainer" unique_id=1499257893]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture = ExtResource("1_efmwq")
-
-[node name="TextureRect3" type="TextureRect" parent="TurretContainer/Panel/MarginContainer/GridContainer" unique_id=1852291771]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture = ExtResource("1_efmwq")
-
-[node name="TextureRect4" type="TextureRect" parent="TurretContainer/Panel/MarginContainer/GridContainer" unique_id=1548308993]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture = ExtResource("1_efmwq")
-
-[node name="TextureRect5" type="TextureRect" parent="TurretContainer/Panel/MarginContainer/GridContainer" unique_id=1720585361]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture = ExtResource("1_efmwq")
-
-[node name="TextureRect6" type="TextureRect" parent="TurretContainer/Panel/MarginContainer/GridContainer" unique_id=710382352]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture = ExtResource("1_efmwq")
 
 [node name="Button" type="Button" parent="TurretContainer/Panel" unique_id=1945761821]
 layout_mode = 1

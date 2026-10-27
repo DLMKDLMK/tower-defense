@@ -9,7 +9,7 @@ var wave_in_progress : bool = false
 @onready var b_node: Node2D = $ballons
 @onready var wave_timer: Timer = $WaveTimer
 @onready var gui: GuiLabel = $CanvasLayer/GUI
-
+var t_catalog = TurretCatalog.new()
 
 func _ready() -> void:
 	m_generator = MapGenerator.new()
@@ -18,7 +18,7 @@ func _ready() -> void:
 	GameManager.update_lives.connect(u_lives)
 	wave_in_progress = false
 	wave_timer.start()
-	gui.setup(GameManager.wave,GameManager.lives,GameManager.money)
+	gui.setup(GameManager.wave,GameManager.lives,GameManager.money,t_catalog.basic_catalog)
 
 func _on_wave_timer_timeout() -> void:
 	wave_timer.stop()
