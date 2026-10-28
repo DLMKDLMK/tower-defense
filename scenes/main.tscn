@@ -25,7 +25,7 @@ tile_set = ExtResource("1_o5qli")
 [node name="turrets" type="Node2D" parent="." unique_id=2066162441]
 
 [node name="TurretMachine" parent="turrets" unique_id=322976851 instance=ExtResource("5_tefeu")]
-position = Vector2(418, 337.00003)
+position = Vector2(101, 506.00003)
 rotation = -0.033225566
 scale = Vector2(2.9999998, 2.9999998)
 att_speed = 1.25

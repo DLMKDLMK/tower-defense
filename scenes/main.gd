@@ -2,6 +2,9 @@ extends Node
 class_name Main
 
 var m_generator : MapGenerator 
+var b_catalog : BalloonCatalog
+var w_catalog : WaveCatalog
+
 var wave_in_progress : bool = false
 @onready var background: TileMapLayer = $scenary/background
 @onready var path_layer: TileMapLayer = $scenary/path
@@ -12,6 +15,8 @@ var wave_in_progress : bool = false
 var t_catalog = TurretCatalog.new()
 
 func _ready() -> void:
+	w_catalog = WaveCatalog.new()
+	b_catalog = BalloonCatalog.new()
 	m_generator = MapGenerator.new()
 	m_generator._setup(path_layer,b_scene,b_node,Vector2i(-2,2),Vector2i(35,12))
 	GameManager.is_game_over.connect(_on_game_over)
@@ -31,8 +36,10 @@ func create_wave():
 		
 	wave_in_progress = true
 	gui.set_wave(GameManager.wave)
-		
-	await m_generator.spawn_ballons(30)
+	
+	var b_array = w_catalog.get_balloons_for_wave(GameManager.wave,b_catalog.b_definitions)
+	
+	await m_generator.spawn_ballons(b_array)
 
 	while b_node.get_child_count() > 0:
 		await get_tree().create_timer(3.0).timeout

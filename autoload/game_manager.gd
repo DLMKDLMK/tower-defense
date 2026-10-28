@@ -13,7 +13,7 @@ func _ready() -> void:
 	start_game()
 
 func start_game() -> void:
-	lives = 5
+	lives = 50
 	wave = 0
 	money = 500
 	g_over = false
