@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TurretDefinition" format=3 uid="uid://buq8mvbh0s7kp"]
+
+[ext_resource type="PackedScene" uid="uid://bdfc7kowpgsbt" path="res://entities/projectile/p_dart/p_dart.tscn" id="1_suljj"]
+[ext_resource type="Script" uid="uid://tdn8g3xloyq3" path="res://data/t_definitions/t_definition.gd" id="2_ucfaa"]
+[ext_resource type="Texture2D" uid="uid://i0co1a4ccso7" path="res://assets/texture/turrets/t_ship.tres" id="3_ucfaa"]
+
+[resource]
+script = ExtResource("2_ucfaa")
+t_name = "t_ship"
+t_range = 500
+att_speed = 1
+price = 500
+placeable = "water"
+projectile = ExtResource("1_suljj")
+sprite = ExtResource("3_ucfaa")

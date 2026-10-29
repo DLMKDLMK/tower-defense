@@ -6,4 +6,5 @@
 [resource]
 script = ExtResource("1_mvy2j")
 b_name = "b_red"
+reward = 20
 b_texture = ExtResource("1_lf5i7")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BallonDefinitions" format=3 uid="uid://dctfow0emli8r"]
+
+[ext_resource type="Texture2D" uid="uid://br1h422dv64up" path="res://assets/texture/ballons/normal/b_purple.tres" id="1_indn4"]
+[ext_resource type="Script" uid="uid://c2yg3rwlx0bu1" path="res://data/b_definitions/b_definitions.gd" id="2_ng8ny"]
+
+[resource]
+script = ExtResource("2_ng8ny")
+b_name = "b_purple"
+hp = 6
+reward = 120
+b_texture = ExtResource("1_indn4")

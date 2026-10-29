@@ -59,6 +59,6 @@ func spawn_ballons(_ballons:Array)-> void:
 				
 		b_node.add_child(b)
 		
-		b.setup(i.hp,i.speed,world_path)
+		b.setup(i.hp, i.speed, world_path, i.reward)
 		await b_node.get_tree().create_timer(0.5).timeout
 		

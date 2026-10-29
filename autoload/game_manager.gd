@@ -3,11 +3,12 @@ extends Node
 var lives : int
 var wave : int
 var top_wave : int = 30
-var money : int 
+var money : int
 var elapsed_time := 0.0
 var g_over : bool = true
 signal is_game_over
 signal update_lives
+signal update_money
 
 func _ready() -> void:
 	start_game()
@@ -32,6 +33,10 @@ func game_over() -> void:
 	print("GAME OVER")
 	g_over = true
 	is_game_over.emit()
+
+func add_money(_money: int) -> void:
+	money += _money
+	update_money.emit()
 
 func subtract_lives(_hp) -> void:
 	lives = max(lives - _hp, 0)

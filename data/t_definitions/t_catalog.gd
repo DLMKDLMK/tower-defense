@@ -7,5 +7,6 @@ var basic_catalog : Array = [
 	load("res://data/t_definitions/t_viking.tres"),
 	load("res://data/t_definitions/t_ninja.tres"),
 	load("res://data/t_definitions/t_cannon.tres"),
-	load("res://data/t_definitions/t_mage.tres")
+	load("res://data/t_definitions/t_mage.tres"),
+	load("res://data/t_definitions/t_ship.tres")
 ]

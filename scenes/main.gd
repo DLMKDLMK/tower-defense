@@ -13,6 +13,7 @@ var wave_in_progress : bool = false
 @onready var wave_timer: Timer = $WaveTimer
 @onready var gui: GuiLabel = $CanvasLayer/GUI
 var t_catalog = TurretCatalog.new()
+var selected_turret: TurretDefinition
 
 func _ready() -> void:
 	w_catalog = WaveCatalog.new()
@@ -21,10 +22,16 @@ func _ready() -> void:
 	m_generator._setup(path_layer,b_scene,b_node,Vector2i(-2,2),Vector2i(35,12))
 	GameManager.is_game_over.connect(_on_game_over)
 	GameManager.update_lives.connect(u_lives)
+	GameManager.update_money.connect(u_money)
 	wave_in_progress = false
 	wave_timer.start()
 	gui.setup(GameManager.wave,GameManager.lives,GameManager.money,t_catalog.basic_catalog)
+	gui.turret_selected.connect(_on_turret_selected)
 
+func _on_turret_selected(definition: TurretDefinition) -> void:
+	selected_turret = definition
+	print("Selected Tower: ", definition.t_name)
+	
 func _on_wave_timer_timeout() -> void:
 	wave_timer.stop()
 	#await create_wave()
@@ -51,7 +58,10 @@ func create_wave():
 		
 func u_lives()->void:
 	gui.set_lives(GameManager.lives)
-			
+
+func u_money()->void:
+	gui.set_money(GameManager.money)	
+	
 func _on_game_over() -> void:
 	wave_in_progress = false
 	wave_timer.stop()
