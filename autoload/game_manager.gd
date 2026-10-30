@@ -16,7 +16,7 @@ func _ready() -> void:
 func start_game() -> void:
 	lives = 50
 	wave = 0
-	money = 500
+	money = 300
 	g_over = false
 	
 func new_wave() -> bool: 
