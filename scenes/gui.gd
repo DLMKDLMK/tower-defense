@@ -69,6 +69,7 @@ func render_turrets(turrets: Array) -> void:
 		n += 1
 		
 	update_money_turrets() 
+	
 func update_money_turrets() -> void:
 	if gtc.get_children().is_empty()==true:
 		return

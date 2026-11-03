@@ -10,11 +10,15 @@ var wave_in_progress : bool = false
 @onready var background: TileMapLayer = $scenary/background
 @onready var path_layer: TileMapLayer = $scenary/path
 @export var b_scene : PackedScene
+@export var t_scene : PackedScene
 @onready var b_node: Node2D = $ballons
+@onready var t_node: Node2D = $turrets
+
 @onready var wave_timer: Timer = $WaveTimer
 @onready var gui: GuiLabel = $CanvasLayer/GUI
 var t_catalog = TurretCatalog.new()
-var selected_turret: TurretDefinition
+var definition_turret: TurretDefinition
+var selected_turret : TurretGeneric
 
 func _ready() -> void:
 	w_catalog = WaveCatalog.new()
@@ -32,8 +36,9 @@ func _ready() -> void:
 	gui.auto_wave_on.connect(f_auto_wave)
 
 func _on_turret_selected(definition: TurretDefinition) -> void:
-	selected_turret = definition
-	print("Selected Tower: ", definition.t_name)
+	definition_turret = definition
+	print("Selected Tower: ", definition)
+	
 
 func f_auto_wave(enabled: bool) -> void:
 	auto_wave = enabled
@@ -71,7 +76,7 @@ func create_wave():
 		
 	wave_in_progress = false
 
-	if GameManager.wave < GameManager.top_wave:
+	if GameManager.wave < GameManager.top_wave and auto_wave:
 		wave_timer.start()
 		
 func u_lives()->void:
@@ -84,6 +89,22 @@ func _on_game_over() -> void:
 	wave_in_progress = false
 	wave_timer.stop()
 	get_tree().paused = true
+			
+func instanciate_turret(position: Vector2 ,_td : TurretDefinition) -> void:
+	var tb : TurretGeneric 
+	t_node.add_child(tb)
+	
+	match _td.type:
+		"BASIC":
+			tb = t_scene.instantiate() as TurretGeneric
+			tb.setup(_td)
+			
+		"MACHINE":
+			tb  = t_scene.instantiate() as TurretMachine
+			tb.setup(_td)
+	
+	tb.global_position = position
+	
 			
 func _process(delta: float) -> void:
 	gui.set_time(GameManager.elapsed_time)

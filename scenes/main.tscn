@@ -3,12 +3,18 @@
 [ext_resource type="TileSet" uid="uid://bt4jvke0uq637" path="res://assets/tileset/map_tile.tres" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cnxji6li6fxe3" path="res://scenes/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bqqklh7ixp7fu" path="res://entities/balloon/balloon.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://ban320pjtptwx" path="res://entities/turret/t_generic/turret_generic.tscn" id="3_choun"]
 [ext_resource type="PackedScene" uid="uid://cphkuy7x7nkbl" path="res://scenes/gui.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dsjpyqdrp3kmd" path="res://entities/turret/t_machine/turret_machine.tscn" id="5_tefeu"]
+[ext_resource type="PackedScene" uid="uid://br2dryaaf8c7f" path="res://entities/turret/t_generic/turret_generic2.tscn" id="6_85g3d"]
+[ext_resource type="PackedScene" uid="uid://cjtadnegv84el" path="res://entities/turret/t_generic/turret_generic3.tscn" id="7_choun"]
+[ext_resource type="PackedScene" uid="uid://bnorw46o84sft" path="res://entities/turret/t_generic/turret_generic4.tscn" id="8_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://cghtomej3yg03" path="res://entities/turret/t_generic/turret_generic5.tscn" id="9_eb6dy"]
 
 [node name="Main" type="Node2D" unique_id=1608408838]
 script = ExtResource("1_sugp2")
 b_scene = ExtResource("2_jyhfs")
+t_scene = ExtResource("3_choun")
 
 [node name="scenary" type="Node2D" parent="." unique_id=1042516931]
 
@@ -37,5 +43,18 @@ wait_time = 2.0
 
 [node name="GUI" parent="CanvasLayer" unique_id=1706337556 instance=ExtResource("5_tbgi4")]
 metadata/_edit_lock_ = true
+
+[node name="TurretGeneric" parent="." unique_id=1784680840 instance=ExtResource("6_85g3d")]
+position = Vector2(114, 159)
+att_speed = 2.0
+
+[node name="TurretGeneric2" parent="." unique_id=356913151 instance=ExtResource("7_choun")]
+position = Vector2(418.00003, 459)
+
+[node name="TurretGeneric3" parent="." unique_id=523361851 instance=ExtResource("8_ya4ey")]
+position = Vector2(241, 332)
+
+[node name="TurretGeneric4" parent="." unique_id=85410972 instance=ExtResource("9_eb6dy")]
+position = Vector2(390, 139)
 
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

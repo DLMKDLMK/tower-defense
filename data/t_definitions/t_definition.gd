@@ -10,3 +10,6 @@ class_name TurretDefinition
 @export var projectile : PackedScene
 @export var sprite : Texture2D 
 @export_enum("BASIC","MACHINE") var type = "BASIC"
+
+func _to_string() -> String:
+	return str(t_name," : ",t_range," : ",price," : ",placeable , " : ",projectile)

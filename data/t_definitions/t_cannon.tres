@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("2_ste01")
-t_name = "t_dart"
+t_name = "t_cannon"
 t_range = 150
 damage = 2
 att_speed = 1

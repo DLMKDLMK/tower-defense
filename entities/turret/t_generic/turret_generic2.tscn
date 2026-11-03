@@ -6,6 +6,8 @@
 [ext_resource type="Shape2D" uid="uid://dinfpmi2j2iqe" path="res://entities/turret/t_generic/range_colision.tres" id="4_b4xvp"]
 [ext_resource type="Script" uid="uid://c2ay4hs7068el" path="res://entities/turret/t_generic/range_line.gd" id="5_h1mi6"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_p3spa"]
+
 [node name="TurretGeneric" type="Node2D" unique_id=322976851]
 scale = Vector2(3, 3)
 script = ExtResource("1_p3spa")
@@ -39,3 +41,11 @@ script = ExtResource("5_h1mi6")
 
 [node name="ShootTimer" type="Timer" parent="." unique_id=1563839165]
 autostart = true
+
+[node name="OverlapArea" type="Area2D" parent="." unique_id=1198959329]
+collision_layer = 8
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OverlapArea" unique_id=283326960]
+shape = SubResource("CircleShape2D_p3spa")
+debug_color = Color(0.61805844, 0.3735568, 0.9667445, 0.41960785)
