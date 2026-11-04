@@ -2,6 +2,7 @@ extends Line2D
 @onready var range_colision: CollisionShape2D = $"../RangeArea/RangeColision"
 var segments: int = 64
 var radius : float 
+
 func _ready() -> void:
 	radius = get_parent().t_range
 	update_circle_line()

@@ -6,15 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://ban320pjtptwx" path="res://entities/turret/t_generic/turret_generic.tscn" id="3_choun"]
 [ext_resource type="PackedScene" uid="uid://cphkuy7x7nkbl" path="res://scenes/gui.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dsjpyqdrp3kmd" path="res://entities/turret/t_machine/turret_machine.tscn" id="5_tefeu"]
-[ext_resource type="PackedScene" uid="uid://br2dryaaf8c7f" path="res://entities/turret/t_generic/turret_generic2.tscn" id="6_85g3d"]
-[ext_resource type="PackedScene" uid="uid://cjtadnegv84el" path="res://entities/turret/t_generic/turret_generic3.tscn" id="7_choun"]
-[ext_resource type="PackedScene" uid="uid://bnorw46o84sft" path="res://entities/turret/t_generic/turret_generic4.tscn" id="8_ya4ey"]
-[ext_resource type="PackedScene" uid="uid://cghtomej3yg03" path="res://entities/turret/t_generic/turret_generic5.tscn" id="9_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://dyln87uxv3ce4" path="res://scenes/SelectionGUI/turret_selection.tscn" id="6_ya4ey"]
 
 [node name="Main" type="Node2D" unique_id=1608408838]
 script = ExtResource("1_sugp2")
 b_scene = ExtResource("2_jyhfs")
 t_scene = ExtResource("3_choun")
+t_scene_machine = ExtResource("5_tefeu")
 
 [node name="scenary" type="Node2D" parent="." unique_id=1042516931]
 
@@ -23,6 +21,7 @@ tile_map_data = PackedByteArray("AAAAAAIAAAACAAAAAAABAAIAAAACAAAAAAACAAIAAAABAAA
 tile_set = ExtResource("1_o5qli")
 
 [node name="path" type="TileMapLayer" parent="scenary" unique_id=222905242]
+visible = false
 tile_map_data = PackedByteArray("AAD+/wIAAAADAAAAAAD//wIAAAACAAAAAAAAAAIAAAACAAAAAAABAAIAAAACAAAAAAARAAwAAAACAAAAAAASAAwAAAACAAAAAAATAAwAAAACAAAAAAAUAAwAAAACAAAAAAAVAAwAAAACAAAAAAAWAAwAAAACAAAAAAAXAAwAAAACAAAAAAAYAAwAAAACAAAAAAAZAAwAAAACAAAAAAAaAAwAAAACAAAAAAAbAAwAAAACAAAAAAAcAAwAAAACAAAAAAAdAAwAAAACAAAAAAAeAAwAAAACAAAAAAAfAAwAAAACAAAAAAAgAAwAAAACAAAAAAAhAAwAAAACAAAAAAABAAMAAAACAAAAAAABAAQAAAACAAAAAAABAAUAAAACAAAAAAABAAYAAAACAAAAAAABAAcAAAACAAAAAAABAAgAAAACAAAAAAABAAkAAAACAAAAAAABAAoAAAACAAAAAAABAAsAAAACAAAAAAABAAwAAAACAAAAAAABAA0AAAACAAAAAAABAA4AAAACAAAAAAABAA8AAAACAAAAAAABABAAAAACAAAAAAABABEAAAACAAAAAAACABEAAAACAAAAAAADABEAAAACAAAAAAAEABEAAAACAAAAAAAFABEAAAACAAAAAAAFABAAAAACAAAAAAAFAA8AAAACAAAAAAAFAA4AAAACAAAAAAAFAA0AAAACAAAAAAAFAAwAAAACAAAAAAAFAAsAAAACAAAAAAAFAAoAAAACAAAAAAAFAAkAAAACAAAAAAAFAAgAAAACAAAAAAAFAAcAAAACAAAAAAAFAAYAAAACAAAAAAAFAAUAAAACAAAAAAAFAAQAAAACAAAAAAAFAAMAAAACAAAAAAAFAAIAAAACAAAAAAAGAAIAAAACAAAAAAAHAAIAAAACAAAAAAAIAAIAAAACAAAAAAAJAAIAAAACAAAAAAAJAAMAAAACAAAAAAAJAAQAAAACAAAAAAAJAAUAAAACAAAAAAAJAAYAAAACAAAAAAAJAAcAAAACAAAAAAAJAAgAAAACAAAAAAAJAAkAAAACAAAAAAAJAAoAAAACAAAAAAAJAAsAAAACAAAAAAAJAAwAAAACAAAAAAAJAA0AAAACAAAAAAAJAA4AAAACAAAAAAAJAA8AAAACAAAAAAAJABAAAAACAAAAAAAJABEAAAACAAAAAAAKABEAAAACAAAAAAALABEAAAACAAAAAAAMABEAAAACAAAAAAANABEAAAACAAAAAAAOABEAAAACAAAAAAAPABEAAAACAAAAAAAQABEAAAACAAAAAAAQABAAAAACAAAAAAAQAA8AAAACAAAAAAAQAA4AAAACAAAAAAAQAA0AAAACAAAAAAAQAAwAAAACAAAAAAAjAAwAAAAEAAAAAAAiAAwAAAACAAAAAAA=")
 tile_set = ExtResource("1_o5qli")
 
@@ -30,11 +29,7 @@ tile_set = ExtResource("1_o5qli")
 
 [node name="turrets" type="Node2D" parent="." unique_id=2066162441]
 
-[node name="TurretMachine" parent="turrets" unique_id=322976851 instance=ExtResource("5_tefeu")]
-position = Vector2(101, 506.00003)
-rotation = -0.033225566
-scale = Vector2(2.9999998, 2.9999998)
-att_speed = 1.25
+[node name="TurretSelection" parent="turrets" unique_id=388507892 instance=ExtResource("6_ya4ey")]
 
 [node name="WaveTimer" type="Timer" parent="." unique_id=1541454248]
 wait_time = 2.0
@@ -43,18 +38,5 @@ wait_time = 2.0
 
 [node name="GUI" parent="CanvasLayer" unique_id=1706337556 instance=ExtResource("5_tbgi4")]
 metadata/_edit_lock_ = true
-
-[node name="TurretGeneric" parent="." unique_id=1784680840 instance=ExtResource("6_85g3d")]
-position = Vector2(114, 159)
-att_speed = 2.0
-
-[node name="TurretGeneric2" parent="." unique_id=356913151 instance=ExtResource("7_choun")]
-position = Vector2(418.00003, 459)
-
-[node name="TurretGeneric3" parent="." unique_id=523361851 instance=ExtResource("8_ya4ey")]
-position = Vector2(241, 332)
-
-[node name="TurretGeneric4" parent="." unique_id=85410972 instance=ExtResource("9_eb6dy")]
-position = Vector2(390, 139)
 
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

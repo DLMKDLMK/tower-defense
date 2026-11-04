@@ -9,13 +9,17 @@ var auto_wave : bool = false
 var wave_in_progress : bool = false
 @onready var background: TileMapLayer = $scenary/background
 @onready var path_layer: TileMapLayer = $scenary/path
+
 @export var b_scene : PackedScene
 @export var t_scene : PackedScene
+@export var t_scene_machine : PackedScene
+
 @onready var b_node: Node2D = $ballons
 @onready var t_node: Node2D = $turrets
-
+@onready var turret_selection: Control = $turrets/TurretSelection
 @onready var wave_timer: Timer = $WaveTimer
 @onready var gui: GuiLabel = $CanvasLayer/GUI
+
 var t_catalog = TurretCatalog.new()
 var definition_turret: TurretDefinition
 var selected_turret : TurretGeneric
@@ -28,7 +32,6 @@ func _ready() -> void:
 	GameManager.is_game_over.connect(_on_game_over)
 	GameManager.update_lives.connect(u_lives)
 	GameManager.update_money.connect(u_money)
-	
 	wave_in_progress = false
 	
 	gui.setup(GameManager.wave,GameManager.lives,GameManager.money,t_catalog.basic_catalog)
@@ -36,9 +39,13 @@ func _ready() -> void:
 	gui.auto_wave_on.connect(f_auto_wave)
 
 func _on_turret_selected(definition: TurretDefinition) -> void:
-	definition_turret = definition
-	print("Selected Tower: ", definition)
-	
+	if is_instance_valid(selected_turret):
+		selected_turret.queue_free()
+
+	selected_turret = instanciate_turret(definition)
+
+	if is_instance_valid(selected_turret):
+		turret_selection.set_preview(selected_turret)
 
 func f_auto_wave(enabled: bool) -> void:
 	auto_wave = enabled
@@ -90,21 +97,21 @@ func _on_game_over() -> void:
 	wave_timer.stop()
 	get_tree().paused = true
 			
-func instanciate_turret(position: Vector2 ,_td : TurretDefinition) -> void:
+func instanciate_turret(_td : TurretDefinition) -> TurretGeneric:
 	var tb : TurretGeneric 
-	t_node.add_child(tb)
-	
 	match _td.type:
 		"BASIC":
 			tb = t_scene.instantiate() as TurretGeneric
-			tb.setup(_td)
-			
 		"MACHINE":
-			tb  = t_scene.instantiate() as TurretMachine
-			tb.setup(_td)
-	
-	tb.global_position = position
-	
+			tb  = t_scene_machine.instantiate() as TurretMachine
 			
+	if tb == null:
+		print("error")
+		return
+
+	turret_selection.add_child(tb)
+	tb.setup(_td)
+	return tb
+	
 func _process(delta: float) -> void:
 	gui.set_time(GameManager.elapsed_time)

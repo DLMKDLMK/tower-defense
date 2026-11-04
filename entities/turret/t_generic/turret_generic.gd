@@ -26,9 +26,7 @@ func _ready() -> void:
 	shoot_timer.timeout.connect(_on_shoot_timer_timeout)
 	shoot_timer.wait_time = 1.0/ att_speed
 	shoot_timer.start()
-	range_line.visible=false
-	
-	range_colision.shape.set_radius(t_range)
+	range_line.visible=true
 	
 func setup(_td : TurretDefinition) -> void:
 	t_name = _td.t_name
@@ -39,6 +37,10 @@ func setup(_td : TurretDefinition) -> void:
 	projectile = _td.projectile
 	placeable = _td.placeable
 	sprite_2d.texture = _td.sprite
+	
+	range_colision.shape.set_radius(t_range)
+	range_line.radius = t_range
+	range_line.update_circle_line()
 
 func _on_area_entered(area: Area2D)-> void:
 	if area.get_parent() is Ballon:

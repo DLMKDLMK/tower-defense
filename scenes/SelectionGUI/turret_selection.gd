@@ -1,31 +1,49 @@
 extends Control
 
-@onready var btn_confirm: Button = $TextureRect/HBoxContainer/BtnConfirm
-@onready var btn_cancel: Button = $TextureRect/HBoxContainer/BtnCancel
+var preview_turret : TurretGeneric
+var main : Node2D 
 
-signal t_confirm
-signal t_cancel
-var t_definition: TurretDefinition
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	main = get_parent().get_parent()
 
+func set_preview(turret: TurretGeneric) -> void:
+	preview_turret = turret
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		global_position = get_global_mouse_position()
+	if preview_turret == null:
+		return
+		
+	global_position = get_global_mouse_position()
+	
+	if can_place_turret():
+		preview_turret.sprite_2d.modulate = Color.WHITE
+	else:
+		preview_turret.sprite_2d.modulate = Color.RED
+		
+#comprobar el overlap_area de t_preview si tiene contacto con otra torre y tambien comprobar el terreno
+func can_place_turret() -> bool:
+	if preview_turret == null:
+		return false
 
+	var overlap_area := preview_turret.get_node_or_null("OverlapArea") as Area2D
+	if overlap_area == null:
+		return false
 
-func _on_btn_confirm_button_down() -> void:
-	t_confirm.emit()
+	for area in overlap_area.get_overlapping_areas():
+		var other_turret := area.get_parent()
+		if other_turret is TurretGeneric and other_turret != preview_turret:
+			return false
 
+	var cell = main.background.local_to_map(
+		main.background.to_local(preview_turret.global_position)
+	)
+	
+	var tile_data = main.background.get_cell_tile_data(cell)
 
-func _on_btn_cancel_button_down() -> void:
-	t_cancel.emit()
+	if tile_data == null:
+		return false
 
+	var tile_type := str(tile_data.get_custom_data("type")).to_lower()
 
-func _on_overlap_area_area_entered(area: Area2D) -> void:
-	if area.get_parent() is TurretGeneric:
-		print(area.get_parent().t_name)
+	return tile_type == preview_turret.placeable.to_lower()

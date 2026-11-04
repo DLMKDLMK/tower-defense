@@ -12,4 +12,4 @@ class_name TurretDefinition
 @export_enum("BASIC","MACHINE") var type = "BASIC"
 
 func _to_string() -> String:
-	return str(t_name," : ",t_range," : ",price," : ",placeable , " : ",projectile)
+	return str(type," : ",t_name," : ",t_range," : ",price," : ",placeable , " : ",projectile)

@@ -1,62 +1,12 @@
 [gd_scene format=3 uid="uid://dyln87uxv3ce4"]
 
 [ext_resource type="Script" uid="uid://dmkf66og0k875" path="res://scenes/SelectionGUI/turret_selection.gd" id="1_blrrs"]
-[ext_resource type="Texture2D" uid="uid://bxp8mtqqryiam" path="res://assets/texture/turrets/t_basic.tres" id="2_blrrs"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
-radius = 25.0
 
 [node name="TurretSelection" type="Control" unique_id=388507892]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1104.0
-offset_bottom = -600.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_blrrs")
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1683732272]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_blrrs")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect" unique_id=119267094]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = 24.0
-offset_right = 39.0
-offset_bottom = 55.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="BtnConfirm" type="Button" parent="TextureRect/HBoxContainer" unique_id=1314336378]
-layout_mode = 2
-text = " V Confirm"
-
-[node name="BtnCancel" type="Button" parent="TextureRect/HBoxContainer" unique_id=1762214956]
-layout_mode = 2
-text = "X Cancel "
-
-[node name="OverlapArea" type="Area2D" parent="." unique_id=4372872]
-collision_layer = 8
-collision_mask = 10
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OverlapArea" unique_id=1054500134]
-position = Vector2(24, 24)
-shape = SubResource("CircleShape2D_g4v7s")
-debug_color = Color(0.61805844, 0.3735568, 0.9667445, 0.41960785)
-
-[connection signal="button_down" from="TextureRect/HBoxContainer/BtnConfirm" to="." method="_on_btn_confirm_button_down"]
-[connection signal="button_down" from="TextureRect/HBoxContainer/BtnCancel" to="." method="_on_btn_cancel_button_down"]
-[connection signal="area_entered" from="OverlapArea" to="." method="_on_overlap_area_area_entered"]

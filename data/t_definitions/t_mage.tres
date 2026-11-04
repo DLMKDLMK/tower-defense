@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="TurretDefinition" format=3 uid="uid://b35gte3hktadq"]
 
-[ext_resource type="PackedScene" uid="uid://bdfc7kowpgsbt" path="res://entities/projectile/p_dart/p_dart.tscn" id="1_3xmbo"]
+[ext_resource type="PackedScene" uid="uid://dt38lo2xtucr" path="res://entities/projectile/p_magic_fire/p_magic_fire.tscn" id="1_3xmbo"]
 [ext_resource type="Script" uid="uid://tdn8g3xloyq3" path="res://data/t_definitions/t_definition.gd" id="2_140uq"]
 [ext_resource type="Texture2D" uid="uid://duqhj0v2o53ry" path="res://assets/texture/turrets/t_mage.tres" id="3_3xmbo"]
 

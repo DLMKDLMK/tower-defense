@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://n817lv8x751a" path="res://entities/turret/t_generic/turret_generic.gd" id="1_4xbb7"]
 [ext_resource type="PackedScene" uid="uid://cglp7ahh2dywb" path="res://entities/projectile/p_star/p_star.tscn" id="2_bu7ob"]
 [ext_resource type="Texture2D" uid="uid://bxp8mtqqryiam" path="res://assets/texture/turrets/t_basic.tres" id="3_4xbb7"]
-[ext_resource type="Shape2D" uid="uid://dinfpmi2j2iqe" path="res://entities/turret/t_generic/range_colision.tres" id="4_t541h"]
 [ext_resource type="Script" uid="uid://c2ay4hs7068el" path="res://entities/turret/t_generic/range_line.gd" id="5_imqhj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_560te"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p3spa"]
 
@@ -30,7 +31,7 @@ collision_layer = 2
 
 [node name="RangeColision" type="CollisionShape2D" parent="RangeArea" unique_id=85014471]
 rotation = 0.004371502
-shape = ExtResource("4_t541h")
+shape = SubResource("CircleShape2D_560te")
 debug_color = Color(0.6626741, 0.5136696, 0, 0.41960785)
 
 [node name="RangeLine" type="Line2D" parent="." unique_id=1934058070]

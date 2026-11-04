@@ -2,15 +2,17 @@
 
 [ext_resource type="Script" uid="uid://b5otdr1aq13op" path="res://entities/turret/t_machine/t_machine.gd" id="1_j6scn"]
 [ext_resource type="PackedScene" uid="uid://ds2bmchk1cthx" path="res://entities/projectile/p_nail/p_nail.tscn" id="2_560te"]
-[ext_resource type="Shape2D" uid="uid://dinfpmi2j2iqe" path="res://entities/turret/t_generic/range_colision.tres" id="2_cvv3h"]
 [ext_resource type="Texture2D" uid="uid://b2sc5knmgifd3" path="res://assets/texture/turrets/t_machine.tres" id="3_560te"]
 [ext_resource type="Script" uid="uid://c2ay4hs7068el" path="res://entities/turret/t_generic/range_line.gd" id="5_4llu2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4bugt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_560te"]
 
 [node name="TurretMachine" type="Node2D" unique_id=322976851]
 scale = Vector2(3, 3)
 script = ExtResource("1_j6scn")
+t_name = "t_machine"
 t_range = 35
 projectile = ExtResource("2_560te")
 
@@ -28,7 +30,7 @@ collision_layer = 2
 
 [node name="RangeColision" type="CollisionShape2D" parent="RangeArea" unique_id=85014471]
 rotation = 0.004371502
-shape = ExtResource("2_cvv3h")
+shape = SubResource("CircleShape2D_4bugt")
 debug_color = Color(0.5967466, 0.5443802, 0.07759742, 0.41960785)
 
 [node name="RangeLine" type="Line2D" parent="." unique_id=1934058070]
@@ -42,7 +44,7 @@ autostart = true
 
 [node name="OverlapArea" type="Area2D" parent="." unique_id=852123234]
 collision_layer = 8
-collision_mask = 10
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OverlapArea" unique_id=743628454]
 shape = SubResource("CircleShape2D_560te")

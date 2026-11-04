@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("2_ucfaa")
 t_name = "t_ship"
-t_range = 500
+t_range = 75
 att_speed = 1
 price = 500
 placeable = "water"
