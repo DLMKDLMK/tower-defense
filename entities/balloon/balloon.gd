@@ -8,7 +8,7 @@ var speed : float = 200.0
 var path: PackedVector2Array = []
 var target_point_index: int = 0
 var b_type : Constants.ballon_type = Constants.ballon_type.NORMAL
-var reward : int = 20
+var reward : int = 5
 var is_removed := false
 @onready var sprite_2d: Sprite2D = $Sprite2D
 

@@ -7,9 +7,7 @@
 [resource]
 script = ExtResource("2_ste01")
 t_name = "t_cannon"
-t_range = 45
 damage = 2
-att_speed = 1
 price = 500
 projectile = ExtResource("1_tou7d")
 sprite = ExtResource("3_ste01")

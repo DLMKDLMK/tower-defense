@@ -40,7 +40,6 @@ antialiased = true
 script = ExtResource("5_4llu2")
 
 [node name="ShootTimer" type="Timer" parent="." unique_id=1563839165]
-autostart = true
 
 [node name="OverlapArea" type="Area2D" parent="." unique_id=852123234]
 collision_layer = 8

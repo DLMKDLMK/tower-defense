@@ -40,7 +40,9 @@ func _ready() -> void:
 
 func _on_turret_selected(definition: TurretDefinition) -> void:
 	if is_instance_valid(selected_turret):
-		selected_turret.queue_free()
+		if selected_turret == turret_selection.preview_turret:
+			selected_turret.queue_free()
+		selected_turret = null
 
 	selected_turret = instanciate_turret(definition)
 
@@ -99,6 +101,7 @@ func _on_game_over() -> void:
 			
 func instanciate_turret(_td : TurretDefinition) -> TurretGeneric:
 	var tb : TurretGeneric 
+
 	match _td.type:
 		"BASIC":
 			tb = t_scene.instantiate() as TurretGeneric
@@ -106,9 +109,9 @@ func instanciate_turret(_td : TurretDefinition) -> TurretGeneric:
 			tb  = t_scene_machine.instantiate() as TurretMachine
 			
 	if tb == null:
-		print("error")
 		return
-
+		
+	tb.name = _td.t_name + str(t_node.get_child_count())
 	turret_selection.add_child(tb)
 	tb.setup(_td)
 	return tb

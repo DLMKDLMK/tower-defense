@@ -4,7 +4,7 @@ class_name TurretDefinition
 @export var t_name : String = "t_name_generic"
 @export var t_range : int = 50
 @export var damage : int = 1
-@export var att_speed : int = 2
+@export var att_speed : float = 0.5
 @export var price : int = 100
 @export var placeable : String = "Ground"
 @export var projectile : PackedScene

@@ -18,6 +18,7 @@ func setup(_wave,_live,money,_turrets) -> void:
 	render_turrets(_turrets)
 	value_money.text = str(money)
 	value_time.text = str(0)
+	mouse_filter = 2
 
 func set_lives(_number) -> void:
 	if _number > 0 :
@@ -76,12 +77,15 @@ func update_money_turrets() -> void:
 		
 	for card in gtc.get_children():
 		var d :=card.get_meta("turret_definition")as TurretDefinition
+		
 		if d.price <= GameManager.money:
 			card.get_node("icon").modulate = Color.WHITE
 			card.get_node("label").modulate = Color.WHITE
+			card.get_node("icon").disabled = false
 		else:
 			card.get_node("icon").modulate = Color.DIM_GRAY
 			card.get_node("label").modulate = Color.RED 
+			card.get_node("icon").disabled = true
 
 func _on_check_button_toggled(toggled_on: bool) -> void:
 	auto_wave_on.emit(toggled_on)

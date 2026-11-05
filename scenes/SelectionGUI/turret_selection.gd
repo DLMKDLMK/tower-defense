@@ -3,9 +3,9 @@ extends Control
 var preview_turret : TurretGeneric
 var main : Node2D 
 
-
 func _ready() -> void:
 	main = get_parent().get_parent()
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func set_preview(turret: TurretGeneric) -> void:
 	preview_turret = turret
@@ -20,8 +20,19 @@ func _process(delta: float) -> void:
 		preview_turret.sprite_2d.modulate = Color.WHITE
 	else:
 		preview_turret.sprite_2d.modulate = Color.RED
-		
-#comprobar el overlap_area de t_preview si tiene contacto con otra torre y tambien comprobar el terreno
+	
+func place_turret()->void:
+	print("place")
+	preview_turret.reparent(main.t_node)
+	preview_turret.set_active()
+	GameManager.spend_money(preview_turret.price)
+	preview_turret = null
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and !preview_turret == null:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and can_place_turret():
+			place_turret()
+	
 func can_place_turret() -> bool:
 	if preview_turret == null:
 		return false

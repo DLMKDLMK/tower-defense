@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_brfg3")
 t_name = "t_dart"
-t_range = 40
-price = 150
+t_range = 60
+price = 250
 projectile = ExtResource("1_6wq7m")
 sprite = ExtResource("3_dtpxa")

@@ -7,9 +7,9 @@
 [resource]
 script = ExtResource("2_djno1")
 t_name = "t_machine"
-t_range = 35
-att_speed = 0
-price = 350
+t_range = 25
+att_speed = 0.7
+price = 400
 projectile = ExtResource("1_k1afw")
 sprite = ExtResource("3_dueb0")
 type = "MACHINE"

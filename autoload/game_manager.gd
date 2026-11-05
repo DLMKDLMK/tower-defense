@@ -33,10 +33,21 @@ func game_over() -> void:
 	print("GAME OVER")
 	g_over = true
 	is_game_over.emit()
+	
+func can_afford(cost: int) -> bool:
+	return cost >= 0 and money >= cost
 
 func add_money(_money: int) -> void:
 	money += _money
 	update_money.emit()
+	
+func spend_money(cost: int) -> bool:
+	if not can_afford(cost):
+		return false
+
+	money -= cost
+	update_money.emit()
+	return true
 
 func subtract_lives(_hp) -> void:
 	lives = max(lives - _hp, 0)
