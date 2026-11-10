@@ -17,7 +17,7 @@ func setup(_damage :int , _obj : Node2D) -> void:
 	var tower_pos = get_parent().position
 	var direction = (predict_position(tower_pos,_obj) - tower_pos).normalized()
 	var perp = direction.rotated(PI / 2)
-	radius = get_parent().t_range
+	radius = get_parent().t_range + 20
 	center = tower_pos + perp * radius
 	start_angle = (tower_pos - center).angle()
 	angle = start_angle

@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 class_name Main
 
 var m_generator : MapGenerator 
@@ -45,7 +45,7 @@ func _on_turret_selected(definition: TurretDefinition) -> void:
 		selected_turret = null
 
 	selected_turret = instanciate_turret(definition)
-
+	selected_turret.selected.connect(select_turret)
 	if is_instance_valid(selected_turret):
 		turret_selection.set_preview(selected_turret)
 
@@ -115,6 +115,16 @@ func instanciate_turret(_td : TurretDefinition) -> TurretGeneric:
 	turret_selection.add_child(tb)
 	tb.setup(_td)
 	return tb
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		for t in t_node.get_children():
+			if t is TurretGeneric:
+				t.set_select(false)
+
+func select_turret(_t:TurretGeneric)->void:
+	selected_turret = _t
+	selected_turret.set_select(true)
 	
 func _process(delta: float) -> void:
 	gui.set_time(GameManager.elapsed_time)

@@ -117,7 +117,7 @@ offset_right = 57.0
 offset_bottom = 60.0
 grow_horizontal = 2
 theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 50
+theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 

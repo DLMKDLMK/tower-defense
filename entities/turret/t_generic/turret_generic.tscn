@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://c2ay4hs7068el" path="res://entities/turret/t_generic/range_line.gd" id="5_imqhj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_560te"]
+resource_local_to_scene = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p3spa"]
 
@@ -48,3 +49,5 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OverlapArea" unique_id=283326960]
 shape = SubResource("CircleShape2D_p3spa")
 debug_color = Color(0.61805844, 0.3735568, 0.9667445, 0.41960785)
+
+[connection signal="input_event" from="OverlapArea" to="." method="_on_overlap_area_input_event"]

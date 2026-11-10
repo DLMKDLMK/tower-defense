@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("2_6hkeb")
 t_name = "t_ninja"
-t_range = 60
+t_range = 40
 att_speed = 1.25
 price = 250
 projectile = ExtResource("1_6hkeb")

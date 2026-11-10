@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bhno67dfdska0" path="res://assets/texture/projectile/p_axe.tres" id="2_uoh00"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t6led"]
-radius = 4.0
-height = 14.0
+radius = 5.0
+height = 20.0
 
 [node name="ProjectileAxe" type="Node2D" unique_id=1302091290]
 script = ExtResource("1_uoh00")

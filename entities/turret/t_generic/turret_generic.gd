@@ -19,6 +19,7 @@ class_name TurretGeneric
 var active = false
 var objective : Node2D
 var objectives : Array[Node2D]
+signal selected
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -45,6 +46,12 @@ func setup(_td : TurretDefinition) -> void:
 		range_line.update_circle_line()
 	
 	shoot_timer.wait_time = 1.0 / att_speed
+
+func set_select(b :bool)->void:
+	if b:
+		range_line.visible = true
+	else:
+		range_line.visible = false
 
 func set_active():
 	active = true
@@ -94,4 +101,6 @@ func _process(delta: float) -> void:
 		sprite_2d.look_at(objective.position)
 		sprite_2d.rotation += deg_to_rad(135) 
 		
-		
+func _on_overlap_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and active == true:
+		selected.emit(self)

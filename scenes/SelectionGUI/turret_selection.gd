@@ -22,11 +22,10 @@ func _process(delta: float) -> void:
 		preview_turret.sprite_2d.modulate = Color.RED
 	
 func place_turret()->void:
-	print("place")
-	preview_turret.reparent(main.t_node)
-	preview_turret.set_active()
-	GameManager.spend_money(preview_turret.price)
-	preview_turret = null
+	if GameManager.spend_money(preview_turret.price):
+		preview_turret.reparent(main.t_node)
+		preview_turret.set_active()
+		preview_turret = null
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and !preview_turret == null:
