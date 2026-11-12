@@ -116,15 +116,18 @@ func instanciate_turret(_td : TurretDefinition) -> TurretGeneric:
 	tb.setup(_td)
 	return tb
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		for t in t_node.get_children():
 			if t is TurretGeneric:
 				t.set_select(false)
-
+				gui.turret_info.visible = false
+				
 func select_turret(_t:TurretGeneric)->void:
 	selected_turret = _t
 	selected_turret.set_select(true)
+	gui.set_turret_info(selected_turret)
+	gui.turret_info.visible = true
 	
 func _process(delta: float) -> void:
 	gui.set_time(GameManager.elapsed_time)

@@ -10,6 +10,10 @@ class_name GuiLabel
 @onready var turret_container: VBoxContainer = $TurretContainer
 @onready var gtc: GridContainer = $TurretContainer/Panel/MarginContainer/GridTextureContainer
 
+@onready var turret_info: Panel = $TurretInfo
+@onready var info_label: Label = $TurretInfo/MarginContainer/VBoxContainer/HBoxContainer/InfoLabel
+@onready var delete_btn: Button = $TurretInfo/MarginContainer/VBoxContainer/DeleteBtn
+
 signal turret_selected(definition: TurretDefinition)
 signal auto_wave_on(boolean: bool)
 func setup(_wave,_live,money,_turrets) -> void:
@@ -19,6 +23,7 @@ func setup(_wave,_live,money,_turrets) -> void:
 	value_money.text = str(money)
 	value_time.text = str(0)
 	mouse_filter = 2
+	turret_info.visible = false
 
 func set_lives(_number) -> void:
 	if _number > 0 :
@@ -91,3 +96,12 @@ func _on_check_button_toggled(toggled_on: bool) -> void:
 	auto_wave_on.emit(toggled_on)
 	var main = gui.get_parent().get_parent()
 	button.disabled = toggled_on or main.wave_in_progress
+
+func set_turret_info(_t : TurretGeneric)->void:
+	info_label.text= _t.t_name
+	delete_btn.set_meta("turret_data",_t)
+
+func _on_delete_btn_button_down() -> void:
+	var t : TurretGeneric = delete_btn.get_meta("turret_data")
+	GameManager.add_money(t.price/2)
+	t.queue_free()
