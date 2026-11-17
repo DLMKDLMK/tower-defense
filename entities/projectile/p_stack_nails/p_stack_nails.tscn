@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b0tuiflw4yqot"]
+
+[ext_resource type="Script" uid="uid://cm8xblhcn0dlx" path="res://entities/projectile/p_stack_nails/p_stack_nail.gd" id="1_ancci"]
+[ext_resource type="Texture2D" uid="uid://5a5oifriopq8" path="res://assets/texture/obstacle/o_nails_3.tres" id="2_ancci"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rh1e8"]
+
+[node name="PStackNails" type="Node2D" unique_id=1302091290]
+script = ExtResource("1_ancci")
+p_name = "P_STACK_NAILS"
+speed = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=204906927]
+texture = ExtResource("2_ancci")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=330946597]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1354056295]
+shape = SubResource("CircleShape2D_rh1e8")

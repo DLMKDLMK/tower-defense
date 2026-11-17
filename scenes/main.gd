@@ -13,7 +13,7 @@ var wave_in_progress : bool = false
 @export var b_scene : PackedScene
 @export var t_scene : PackedScene
 @export var t_scene_machine : PackedScene
-
+@export var t_scene_obstacle : PackedScene
 @onready var b_node: Node2D = $ballons
 @onready var t_node: Node2D = $turrets
 @onready var turret_selection: Control = $turrets/TurretSelection
@@ -69,7 +69,6 @@ func _on_wave_timer_timeout() -> void:
 		wave_timer.start()
 	
 func create_wave():
-	print(GameManager.wave)
 	if GameManager.g_over or wave_in_progress or not GameManager.new_wave():
 		return
 		
@@ -107,6 +106,8 @@ func instanciate_turret(_td : TurretDefinition) -> TurretGeneric:
 			tb = t_scene.instantiate() as TurretGeneric
 		"MACHINE":
 			tb  = t_scene_machine.instantiate() as TurretMachine
+		"OBSTACLE":
+			tb = t_scene_obstacle.instantiate() as TurretObstacle
 			
 	if tb == null:
 		return

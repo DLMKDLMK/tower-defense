@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cq20n5ul85mwr"]
+
+[ext_resource type="Script" uid="uid://csgirfdqj2alw" path="res://entities/projectile/p_pineapple/p_pineapple.gd" id="1_qvkih"]
+[ext_resource type="Texture2D" uid="uid://efdsqplqfurk" path="res://assets/texture/obstacle/o_pineapple.tres" id="2_qvkih"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rh1e8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qvkih"]
+radius = 15.0
+
+[node name="PPineapple" type="Node2D" unique_id=1302091290]
+script = ExtResource("1_qvkih")
+p_name = "P_STACK_NAILS"
+speed = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=204906927]
+texture = ExtResource("2_qvkih")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=330946597]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1354056295]
+shape = SubResource("CircleShape2D_rh1e8")
+
+[node name="Label" type="Label" parent="Area2D" unique_id=1253235607]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -5.0
+offset_right = -2.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.7853982
+text = "3"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=24499402]
+autostart = true
+
+[node name="ExpArea2D" type="Area2D" parent="." unique_id=206237929]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExpArea2D" unique_id=1493924024]
+shape = SubResource("CircleShape2D_qvkih")
+debug_color = Color(0.9999998, 0.017443307, 0.014300801, 0.41960785)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

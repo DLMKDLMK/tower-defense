@@ -11,7 +11,6 @@ func get_balloon_count(wave: int) -> int:
 	var progress := float(safe_wave - 1) / float(safe_top_wave - 1)
 	var proportion := lerpf(1.0, max_proportion, progress)
 	var result = roundi(base_balloons * proportion) + wave
-	print("Ballon Count:",result)
 	return result
 
 func get_available_balloons( wave: int,definitions: Dictionary) -> Array[BallonDefinitions]:

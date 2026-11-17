@@ -23,11 +23,12 @@ signal selected
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	range_area.area_entered.connect(_on_area_entered)
-	range_area.area_exited.connect(_on_area_exit)
-	shoot_timer.timeout.connect(_on_shoot_timer_timeout)
-	shoot_timer.stop()
-	range_line.visible = true
+	if range_area:
+		range_area.area_entered.connect(_on_area_entered)
+		range_area.area_exited.connect(_on_area_exit)
+		shoot_timer.timeout.connect(_on_shoot_timer_timeout)
+		shoot_timer.stop()
+		range_line.visible = true
 	
 func setup(_td : TurretDefinition) -> void:
 	t_name = _td.t_name
@@ -39,19 +40,21 @@ func setup(_td : TurretDefinition) -> void:
 	placeable = _td.placeable
 	sprite_2d.texture = _td.sprite
 	
-	range_colision.shape.set_radius(t_range)
-	
-	if range_line.visible == true:
-		range_line.radius = t_range
-		range_line.update_circle_line()
+	if range_colision and range_colision.shape is CircleShape2D:
+		range_colision.shape.set_radius(t_range)
+		
+		if range_line.visible == true:
+			range_line.radius = t_range
+			range_line.update_circle_line()
 	
 	shoot_timer.wait_time = 1.0 / att_speed
 
 func set_select(b :bool)->void:
-	if b:
-		range_line.visible = true
-	else:
-		range_line.visible = false
+	if range_line:
+		if b:
+			range_line.visible = true
+		else:
+			range_line.visible = false
 
 func set_active():
 	active = true

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bt684ol4mvd6i"]
+
+[ext_resource type="Script" uid="uid://cefi4qbho2rce" path="res://entities/turret/t_obstacle/t_obstacle.gd" id="1_hsh48"]
+[ext_resource type="Texture2D" uid="uid://efdsqplqfurk" path="res://assets/texture/obstacle/o_pineapple.tres" id="2_hsh48"]
+[ext_resource type="PackedScene" uid="uid://bq8kllfi3o2hm" path="res://entities/projectile/p_bomb/p_bomb.tscn" id="2_yc2nn"]
+[ext_resource type="Script" uid="uid://c2ay4hs7068el" path="res://entities/turret/t_generic/range_line.gd" id="4_5dd2v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tvp31"]
+resource_local_to_scene = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_560te"]
+
+[node name="TurretObstacle" type="Node2D" unique_id=322976851]
+scale = Vector2(3, 3)
+script = ExtResource("1_hsh48")
+t_name = "t_pineapple_bomb"
+t_range = 0
+att_speed = 0.0
+projectile = ExtResource("2_yc2nn")
+placeable = "Road"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=538980350]
+texture_filter = 1
+texture = ExtResource("2_hsh48")
+
+[node name="Marker2D" type="Marker2D" parent="Sprite2D" unique_id=719969962]
+
+[node name="RangeArea" type="Area2D" parent="." unique_id=1034881870]
+collision_layer = 2
+
+[node name="RangeColision" type="CollisionShape2D" parent="RangeArea" unique_id=1306908674]
+rotation = 0.004371502
+shape = SubResource("CircleShape2D_tvp31")
+debug_color = Color(0.6626741, 0.5136696, 0, 0.41960785)
+
+[node name="RangeLine" type="Line2D" parent="." unique_id=1623925845]
+width = 0.5
+default_color = Color(1, 1, 1, 0.5294118)
+antialiased = true
+script = ExtResource("4_5dd2v")
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=1563839165]
+wait_time = 3.0
+
+[node name="OverlapArea" type="Area2D" parent="." unique_id=852123234]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OverlapArea" unique_id=743628454]
+shape = SubResource("CircleShape2D_560te")
+debug_color = Color(0.61805844, 0.3735568, 0.9667445, 0.41960785)

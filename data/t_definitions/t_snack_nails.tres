@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TurretDefinition" format=3 uid="uid://dp732ujj8scm"]
+
+[ext_resource type="PackedScene" uid="uid://b0tuiflw4yqot" path="res://entities/projectile/p_stack_nails/p_stack_nails.tscn" id="1_1c8mt"]
+[ext_resource type="Script" uid="uid://tdn8g3xloyq3" path="res://data/t_definitions/t_definition.gd" id="2_ipll6"]
+[ext_resource type="Texture2D" uid="uid://5a5oifriopq8" path="res://assets/texture/obstacle/o_nails_3.tres" id="3_1c8mt"]
+
+[resource]
+script = ExtResource("2_ipll6")
+t_name = "t_snack_nails"
+t_range = 0
+placeable = "Road"
+projectile = ExtResource("1_1c8mt")
+sprite = ExtResource("3_1c8mt")
+type = "OBSTACLE"
