@@ -33,7 +33,7 @@ Esta versión no incluye:
 - Mejoras, niveles o árboles de habilidades para las torres.
 - Pantalla de victoria y reinicio de partida.
 - Más mapas, campaña, progresión persistente o guardado de partidas.
-- Multijugador, menú de inicio, ajustes de juego o selección de niveles.
+- Menú de inicio, ajustes de juego o selección de niveles.
 - Nuevas familias de globos especiales o sistemas de contenido posteriores a las 30 oleadas.
 
 ## Requisitos y ejecución
