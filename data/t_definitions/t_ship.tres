@@ -8,8 +8,9 @@
 script = ExtResource("2_ucfaa")
 t_name = "t_ship"
 t_range = 75
+damage = 1
 att_speed = 0.75
-price = 1500
+price = 800
 placeable = "water"
 projectile = ExtResource("1_suljj")
 sprite = ExtResource("3_ucfaa")

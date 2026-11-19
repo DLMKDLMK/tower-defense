@@ -7,5 +7,6 @@
 script = ExtResource("2_dlc2n")
 b_name = "b_rainbow"
 hp = 7
-reward = 140
+reward = 133
+speed = 125.0
 b_texture = ExtResource("1_ewbt8")

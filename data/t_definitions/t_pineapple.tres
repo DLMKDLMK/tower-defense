@@ -8,6 +8,9 @@
 script = ExtResource("2_vtdl8")
 t_name = "t_pineapple_bomb"
 t_range = 0
+damage = 1
+att_speed = 0.5
+price = 150
 placeable = "Road"
 projectile = ExtResource("1_ca2v2")
 sprite = ExtResource("3_ca2v2")

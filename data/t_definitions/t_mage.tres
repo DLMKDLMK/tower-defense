@@ -7,6 +7,9 @@
 [resource]
 script = ExtResource("2_140uq")
 t_name = "t_mage"
-price = 1500
+t_range = 50
+damage = 1
+att_speed = 0.5
+price = 900
 projectile = ExtResource("1_3xmbo")
 sprite = ExtResource("3_3xmbo")

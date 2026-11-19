@@ -13,6 +13,8 @@ class_name GuiLabel
 @onready var turret_info: Panel = $TurretInfo
 @onready var info_label: Label = $TurretInfo/MarginContainer/VBoxContainer/HBoxContainer/InfoLabel
 @onready var delete_btn: Button = $TurretInfo/MarginContainer/VBoxContainer/DeleteBtn
+@onready var game_over_overlay: Control = $GameOverOverlay
+@onready var game_over_wave: Label = $GameOverOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/WaveLabel
 
 signal turret_selected(definition: TurretDefinition)
 signal auto_wave_on(boolean: bool)
@@ -24,10 +26,17 @@ func setup(_wave,_live,money,_turrets) -> void:
 	value_time.text = str(0)
 	mouse_filter = 2
 	turret_info.visible = false
+	game_over_overlay.visible = false
 
 func set_lives(_number) -> void:
-	if _number > 0 :
-		value_lives.text = str(maxi(_number, 0))
+	value_lives.text = str(maxi(_number, 0))
+
+func show_game_over(final_wave: int, max_wave: int) -> void:
+	game_over_wave.text = "Wave reached: %d / %d" % [final_wave, max_wave]
+	game_over_overlay.visible = true
+	button.disabled = true
+	auto_btn.disabled = true
+	auto_btn.set_pressed_no_signal(false)
 
 func set_money(_number) -> void:
 	value_money.text = ""

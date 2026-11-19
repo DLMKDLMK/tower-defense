@@ -5,6 +5,18 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66xuh"]
 bg_color = Color(0.20152655, 0.20152661, 0.20152646, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_GameOver"]
+bg_color = Color(0.105, 0.125, 0.15, 0.98)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.82, 0.24, 0.18, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
 [node name="GUI" type="Control" unique_id=1706337556]
 layout_mode = 3
 anchors_preset = 15
@@ -193,6 +205,67 @@ text = "Name:"
 [node name="DeleteBtn" type="Button" parent="TurretInfo/MarginContainer/VBoxContainer" unique_id=723482684]
 layout_mode = 2
 text = "DeleteBTN"
+
+[node name="GameOverOverlay" type="Control" parent="." unique_id=2030780842]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backdrop" type="ColorRect" parent="GameOverOverlay" unique_id=1656549360]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.015, 0.02, 0.03, 0.78)
+
+[node name="CenterContainer" type="CenterContainer" parent="GameOverOverlay" unique_id=2021458335]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="GameOverOverlay/CenterContainer" unique_id=1463570554]
+custom_minimum_size = Vector2(460, 230)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_GameOver")
+
+[node name="MarginContainer" type="MarginContainer" parent="GameOverOverlay/CenterContainer/PanelContainer" unique_id=903747918]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverOverlay/CenterContainer/PanelContainer/MarginContainer" unique_id=553352131]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TitleLabel" type="Label" parent="GameOverOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=339458772]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="GameOverOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=42844553]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "You have run out of lives."
+horizontal_alignment = 1
+
+[node name="WaveLabel" type="Label" parent="GameOverOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1890699043]
+layout_mode = 2
+text = "Wave reached: 0 / 30"
+horizontal_alignment = 1
 
 [connection signal="toggled" from="TurretContainer/Panel/VContainer/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="button_down" from="TurretContainer/Panel/VContainer/NextButton" to="." method="_on_button_button_down"]

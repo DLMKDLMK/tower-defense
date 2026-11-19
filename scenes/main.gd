@@ -96,6 +96,7 @@ func u_money()->void:
 func _on_game_over() -> void:
 	wave_in_progress = false
 	wave_timer.stop()
+	gui.show_game_over(GameManager.wave, GameManager.top_wave)
 	get_tree().paused = true
 			
 func instanciate_turret(_td : TurretDefinition) -> TurretGeneric:

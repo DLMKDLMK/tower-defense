@@ -8,7 +8,8 @@
 script = ExtResource("2_mnkka")
 t_name = "t_viking"
 t_range = 40
+damage = 1
 att_speed = 0.75
-price = 250
+price = 350
 projectile = ExtResource("1_ur4kk")
 sprite = ExtResource("3_ur4kk")
